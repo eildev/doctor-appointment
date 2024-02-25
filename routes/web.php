@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DrInfoController;
 use App\Http\Controllers\Backend\ServicesController;
+use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\ManagingTeamController;
 use App\Http\Controllers\Backend\OverviewController;
 use App\Http\Controllers\Backend\NewsController;
@@ -110,13 +111,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/gallery/delete/{id}', 'DeleteGallery')->name('delete.gallery');
     });
     //Services Related Routes
-    Route::controller(ServicesController::class)->group(function () {
-        Route::get('/services/add', 'ServicesAdd')->name('service.add');
-        Route::post('/services/store', 'StoreServices')->name('store.services');
-        Route::get('/services/view', 'ViewServices')->name('service.view');
-        Route::get('/services/edit/{id}', 'EditServices')->name('edit.services');
-        Route::post('/services/update/{id}', 'UpdateServices')->name('update.services');
-        Route::get('/services/delete/{id}', 'DeleteServices')->name('delete.services');
+    Route::controller(ServiceController::class)->group(function () {
+        Route::get('/services/add', 'index')->name('service.add');
+        Route::post('/services/store', 'store')->name('store.services');
+        Route::get('/services/view', 'view')->name('service.view');
+        Route::get('/services/edit/{id}', 'edit')->name('edit.services');
+        Route::post('/services/update/{id}', 'update')->name('update.services');
+        Route::get('/services/delete/{id}', 'delete')->name('delete.services');
+        // Route::get('/services/status/{id}', 'status')->name('status.services');
     });
     //Services Details Related Routes
     Route::controller(ServicesController::class)->group(function () {
