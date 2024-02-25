@@ -2,24 +2,25 @@
 @include('backend.body.css');
 
         <!-- Begin page -->
-        <div id="layout-wrapper">
-            {{-- //Header --}}
-            @include('backend.body.header');
+        <div class="wrapper">
 
-           <!-- Left Sidebar Start -->
+             <!-- Left Sidebar Start -->
             @include('backend.body.sidebar');
 
+           {{-- //Header --}}
+           @include('backend.body.header');
+
                 {{-- Main --}}
-              <div class="main-content">
-                <div class="page-content">
+                <div class="page-wrapper">
+                    <div class="page-content">
                     @yield('admin')
                 </div>
-                {{-- Footer --}}
-                @include('backend.body.footer');
             </div>
             <!-- end main content-->
-
+            {{-- Footer --}}
+            @include('backend.body.footer');
         </div>
-
+  {{-- Switcher --}}
+  @include('backend.body.switcher');
    <!-- JAVASCRIPT -->
    @include('backend.body.js');
