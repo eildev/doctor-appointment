@@ -1,59 +1,69 @@
 @extends('backend.admin_master')
 @section('admin')
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4>Fotter list</h4><br>
-                     <div class="page-title-right">
-                        <ol class="breadcrumb m-0">
-                         <li class="breadcrumb-item active">
-                             <a href="{{route('add.footer')}}" class=" btn btn-sm btn-primary text-light fs-4"> +</a>
-                         </li>
-                       </ol>
-                     </div>
-                     </div>
-                    <h3 class="card-title">Footter Datatable</h3>
-
-                    <table id="datatable" class="table dt-responsive nowrap w-100">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Address</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Location</th>
-                                <th>Link</th>
-                                <th>Website</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-
-
-                        <tbody>
-                            @foreach ($footer as $key => $item)
-                            <tr>
-                                <td>{{$key+1}}</td>
-                                <td>{{$item->fullAddress}}</td>
-                                <td>{{$item->email}}</td>
-                                <td>{{$item->phone}}</td>
-                                <td>{{$item->location}}</td>
-                                <td>{{$item->link}}</td>
-                                <td>{{$item->website}}</td>
-                                <td>
-                                    <a class="btn btn-sm btn-warning" href="{{route('edit.footer',$item->id)}}"><i class="fas fa-pencil-alt"></i></a>
-
-                                <a href="{{route('delete.footer',$item->id)}}" id="delete" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a></td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-
-                </div> <!-- end card body-->
-            </div> <!-- end card -->
-        </div><!-- end col-->
+    <!--breadcrumb-->
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+        <div class="breadcrumb-title pe-3">Tables</div>
+        <div class="ps-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 p-0">
+                    <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Data Table</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="ms-auto">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary">Settings</button>
+                <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
+                    data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item"
+                        href="javascript:;">Action</a>
+                    <a class="dropdown-item" href="javascript:;">Another action</a>
+                    <a class="dropdown-item" href="javascript:;">Something else here</a>
+                    <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated link</a>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>SN</th>
+                            <th>Name</th>
+                            <th>Specialization</th>
+                            <th>Qualification</th>
+                            <th>Experience</th>
+                            <th>Bio</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       @if ()
+                       @foreach ($allData as $key => $item)
+                       <tr>
+                        <td>{{$key+1}}</td>
+                        <td>{{ Illuminate\Support\Str::limit($item->name, 15) }}</td>
+                        <td>{{ Illuminate\Support\Str::limit($item->specialization, 15) }}</td>
+                        <td>{{ Illuminate\Support\Str::limit($item->qualification, 15) }}</td>
+                        <td>{{ Illuminate\Support\Str::limit($item->experience_years, 15) }}</td>
+                        <td>{{ Illuminate\Support\Str::limit($item->bio, 15) }}</td>
+                        <td></td>
+                       </tr>
+                       @endforeach
+                       @else
+                           <tr>
+                            <td>No Data found</td>
+                           </tr>
+                       @endif
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 @endsection
