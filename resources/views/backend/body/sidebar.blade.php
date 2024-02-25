@@ -55,9 +55,43 @@
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
+
                 <div class="menu-title">Education & Training</div>
             </a>
             <ul>
+                <li> <a href="{{ route('add.education.training') }}"><i class="bx bx-right-arrow-alt"></i>Add Edu
+                        Training</a>
+                </li>
+                <li> <a href="{{ route('view.education.training') }}"><i class="bx bx-right-arrow-alt"></i>Manage Edu
+                        Training</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Gallery Category</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('category.add') }}"><i class="bx bx-right-arrow-alt"></i>Add Category</a>
+                </li>
+                <li> <a href="{{ route('category.view') }}"><i class="bx bx-right-arrow-alt"></i>Manage Category</a>
+                </li>
+
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Gallery</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('gallery.add') }}"><i class="bx bx-right-arrow-alt"></i>Add Gallery </a>
+                </li>
+                <li> <a href="{{ route('gallery.view') }}"><i class="bx bx-right-arrow-alt"></i>Manage Gallery </a>
                 <li> <a href="{{ route('add.education.training') }}"><i class="bx bx-right-arrow-alt"></i>Add Edu &
                         Training</a>
                 </li>
@@ -138,7 +172,8 @@
             <ul>
                 <li> <a class="has-arrow" href="javascript:;"><i class="bx bx-right-arrow-alt"></i>Level One</a>
                     <ul>
-                        <li> <a class="has-arrow" href="javascript:;"><i class="bx bx-right-arrow-alt"></i>Level Two</a>
+                        <li> <a class="has-arrow" href="javascript:;"><i class="bx bx-right-arrow-alt"></i>Level
+                                Two</a>
                             <ul>
                                 <li> <a href="javascript:;"><i class="bx bx-right-arrow-alt"></i>Level Three</a>
                                 </li>

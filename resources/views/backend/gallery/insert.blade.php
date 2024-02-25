@@ -28,15 +28,15 @@
                             <option value="{{$cat->id}}">{{$cat->category_name}}</option>
                             @endforeach
                         </select>
-                      
+
                     </div>
 
                 </div>
                 <div class="row mb-3">
-                    <label for="example-email-input" class="col-sm-2 col-form-label">Gallery Title</label>
+                    <label for="example-email-input" class="col-sm-2 col-form-label">Gallery Caption</label>
                     <div class="col-sm-10 form-group">
                         <input class="form-control" name="gallery_title" type="text" placeholder="Enter Gallery Title" id="example-email-input">
-                      
+
                     </div>
 
                 </div>
@@ -51,7 +51,7 @@
                 <div class="row mb-3">
                     <label for="example-url-input" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
-                        <img id="showImage" class="rounded avatar-lg " src="{{asset('uploads/about/no_images.jpg')}}" alt="About Image">
+                        <img id="showImage" class="rounded avatar-lg" src="{{asset('uploads/no_image/images.png')}}" height="100px" width="100px"  alt="Gallery Image">
                     </div>
 
                 </div>
@@ -75,7 +75,7 @@
             rules: {
                 category_name: {
                     required : true,
-                }, 
+                },
                 gallery_image: {
                     required : true,
                 },

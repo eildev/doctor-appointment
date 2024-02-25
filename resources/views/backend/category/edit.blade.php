@@ -31,6 +31,15 @@
                     </div>
                 </div>
                 <div class="row mb-3">
+                    <label for="example-email-input" class="col-sm-2 col-form-label">Gallery Category Description</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control @error('description') is-invalid  @enderror" name="description" type="text" placeholder="Enter Category Description" id="example-email-input"> {{$category->description}} </textarea>
+                        @error('description')
+                        <span class="text-danger">{{ $message }}</span>
+                         @enderror
+                    </div>
+                </div>
+                <div class="row mb-3">
                     <label for="example-number-input" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
                         <input  type="submit" value="Update" class="btn btn-info ">

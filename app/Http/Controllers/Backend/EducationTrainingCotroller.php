@@ -58,5 +58,14 @@ class EducationTrainingCotroller extends Controller
             'alert-type'=> 'info'
          );
         return redirect()->route('view.education.training')->with($notification);
-    }
+    }//end function
+    public function DeleteEducationTraining($id){
+    $eduTrain = EducationTraining::findOrFail($id);
+    $eduTrain->delete();
+    $notification = array(
+      'message' =>'Edu & Training Sccessfully Deleted',
+        'alert-type'=> 'info'
+     );
+     return redirect()->route('view.education.training')->with($notification);
+     }//end function
 }

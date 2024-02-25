@@ -35,7 +35,7 @@
 
                 </div>
                 <div class="row mb-3">
-                    <label for="example-email-input" class="col-sm-2 col-form-label">Gallery Title</label>
+                    <label for="example-email-input" class="col-sm-2 col-form-label">Gallery Caption</label>
                     <div class="col-sm-10">
                         <input class="form-control @error('gallery_title') is-invalid  @enderror" name="gallery_title" type="text" value="{{$gallery->title}} " placeholder="Enter Gallery Title" id="example-email-input">
                         @error('gallery_title')
@@ -55,7 +55,7 @@
                 <div class="row mb-3">
                     <label for="example-url-input" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
-                        <img id="showImage" class="rounded avatar-lg " src="{{asset('uploads/gallery/'.$gallery->gallery_image)}}" alt="gallery Image">
+                        <img id="showImage" class="rounded avatar-lg " src="{{asset('uploads/gallery/'.$gallery->gallery_image)}}" height="100px" width="100px" alt="gallery Image">
                         @error('gallery_image')
                          <span class="text-danger">{{ $message }}</span>
                         @enderror

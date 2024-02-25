@@ -16,7 +16,7 @@
             </div>
             </div>
                 <hr>
-                <form action="{{route('update.education.training',$eduTrain->id)}}" id="myForm" method="post"   >
+                <form action="{{route('update.education.training',$eduTrain->id)}}" id="myForm1" method="post"   >
                     @csrf
 
                 <!-- end row -->
@@ -73,7 +73,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function (){
-        $('#myForm').validate({
+        $('#myForm1').validate({
             rules: {
                 institution_name: {
                     required : true,
