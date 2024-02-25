@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\SocialIconController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\DrInfoController;
 use App\Http\Controllers\Backend\ServicesController;
 use App\Http\Controllers\Backend\ManagingTeamController;
 use App\Http\Controllers\Backend\OverviewController;
@@ -50,13 +51,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
     //Footer Route
-    Route::controller(FooterController::class)->group(function () {
-        Route::get('/footer/add', 'FooterAdd')->name('add.footer');
-        Route::post('/footer/store', 'StoreFooter')->name('store.footer');
-        Route::get('/footer/view', 'ViewFooter')->name('view.footer');
-        Route::get('/footer/edit/{id}', 'EditFooter')->name('edit.footer');
-        Route::post('/footer/update/{id}', 'UpdateFooter')->name('update.footer');
-        Route::get('/footer/delete/{id}', 'DeleteFooter')->name('delete.footer');
+    Route::controller(DrInfoController::class)->group(function () {
+        Route::get('/dr-info/add', 'index')->name('add.dr.info');
+        Route::post('/dr-info/store', 'store')->name('store.dr.info');
+        Route::get('/dr-info/view', 'view')->name('view.dr.info');
+        Route::get('/dr-info/edit/{id}', 'edit')->name('edit.dr.info');
+        Route::post('/dr-info/update/{id}', 'update')->name('update.dr.info');
+        Route::get('/dr-info/delete/{id}', 'delete')->name('delete.dr.info');
+        Route::get('/dr-info/status/{id}', 'status')->name('status.dr.info');
     });
 
     // home settings related routes
