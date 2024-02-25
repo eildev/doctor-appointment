@@ -107,7 +107,6 @@
       </body>
 
       </html>
-<<<<<<< HEAD
 //////////////
 <script src="{{ asset('backend') }}/assets/js/bootstrap.bundle.min.js"></script>
 <!--plugins-->
@@ -134,8 +133,6 @@
 <script src="{{ asset('backend/assets/js/code.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-=======
-      //////////////
       <script src="{{ asset('backend') }}/assets/js/bootstrap.bundle.min.js"></script>
       <!--plugins-->
       <script src="{{ asset('backend') }}/assets/js/jquery.min.js"></script>
@@ -159,8 +156,7 @@
       <script src="{{ asset('backend') }}/assets/js/app.js"></script>
       <script src="{{ asset('backend/assets/js/code.js') }}"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-      {{-- <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script> --}}
->>>>>>> aa1a4f0ee89ed071e866684a743b3931e59b5238
+      <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
       <script>
           @if (Session::has('message'))
               toastr.options = {
@@ -219,11 +215,7 @@
               });
           });
       </script>
-<<<<<<< HEAD
 
-</body>
-=======
       </body>
->>>>>>> aa1a4f0ee89ed071e866684a743b3931e59b5238
 
       </html>
