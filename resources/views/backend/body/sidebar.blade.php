@@ -56,11 +56,14 @@
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
                 <div class="menu-title">Application</div>
+                <div class="menu-title">Education & Training</div>
             </a>
             <ul>
-                <li> <a href="app-emailbox.html"><i class="bx bx-right-arrow-alt"></i>Email</a>
+                <li> <a href="{{ route('add.education.training') }}"><i class="bx bx-right-arrow-alt"></i>Add Edu &
+                        Training</a>
                 </li>
-                <li> <a href="app-chat-box.html"><i class="bx bx-right-arrow-alt"></i>Chat Box</a>
+                <li> <a href="{{ route('view.education.training') }}"><i class="bx bx-right-arrow-alt"></i>Manage Edu &
+                        Training</a>
                 </li>
 
 

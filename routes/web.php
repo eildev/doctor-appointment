@@ -18,6 +18,7 @@ use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Backend\OurPartnerController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\WhyChooseUsController;
+use App\Http\Controllers\Backend\EducationTrainingCotroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -194,11 +195,18 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/delete-our-partner/{id}', 'delete')->name('delete.our-partner');
         Route::post('/our-partner-status/{id}', 'status')->name('our-partner.status');
     });
+    Route::controller(EducationTrainingCotroller::class)->group(function () {
+        Route::get('/education/training/add', 'AddEducationTraining')->name('add.education.training');
+        Route::post('/education/training/store', 'StoreEducationTraining')->name('store.education.training');
+        Route::get('/education/training/view', 'ViewEducationTraining')->name('view.education.training');
+        Route::get('/education/training/edit/{id}', 'EditEducationTraining')->name('edit.education.training');
+        Route::post('/education/training/update/{id}', 'UpdateEducationTraining')->name('update.education.training');
+        // Route::get('/delete-our-partner/{id}', 'delete')->name('delete.our-partner');
+        // Route::post('/our-partner-status/{id}', 'status')->name('our-partner.status');
+    });
 
 
-
-    // Log::warning("message");
-});
+});//End Middleware
 
 
 Route::middleware('auth')->group(function () {
