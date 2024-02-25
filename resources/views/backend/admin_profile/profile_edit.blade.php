@@ -1,7 +1,5 @@
 @extends('backend.admin_master')
 @section('admin')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <div class="page-content">
 <div class="container-fluid">
 
@@ -52,7 +50,7 @@
               <div class="row mb-3">
                  <label for="example-text-input" class="col-sm-2 col-form-label">  </label>
                 <div class="col-sm-10">
-                    <img id="showImage" class="rounded avatar-lg" src="{{(!empty($editData->photo)) ?url('admin_image/profile/'.$editData->photo): url('admin_image/profile/no_images.png')}}" alt="Card image cap">
+                    <img id="showImage" class="rounded avatar-lg" src="{{(!empty($editData->photo)) ?url('admin_image/profile/'.$editData->photo): url('admin_image/profile/no_images.png')}}"  style="height:100px;width:100px"  alt="Admin profile">
                 </div>
             </div>
             <!-- end row -->
@@ -71,17 +69,4 @@
 </div>
 </div>
 
-
-<script type="text/javascript">
-
-    $(document).ready(function(){
-        $('#image').change(function(e){
-            var reader = new FileReader();
-            reader.onload = function(e){
-                $('#showImage').attr('src',e.target.result);
-            }
-            reader.readAsDataURL(e.target.files['0']);
-        });
-    });
-</script>
 @endsection

@@ -1,121 +1,119 @@
-<!doctype html>
 <html lang="en">
 
-
-<!-- Mirrored from themesdesign.in/upcube/layouts/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Feb 2023 16:22:01 GMT -->
-
 <head>
-
-    <meta charset="utf-8" />
-    <title>Admin Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-    <meta content="Themesdesign" name="author" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('backend') }}/assets/images/favicon.ico">
-
-    <!-- Bootstrap Css -->
-    <link href="{{ asset('backend') }}/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet"
-        type="text/css" />
-    <!-- Icons Css -->
-    <link href="{{ asset('backend') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
-    <link href="{{ asset('backend') }}/assets/css/Untitled-1.css" id="app-style" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--favicon-->
+	<link rel="icon" href="{{asset('backend')}}/assets/images/favicon-32x32.png" type="image/png" />
+	<!--plugins-->
+	<link href="{{asset('backend')}}/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+	<link href="{{asset('backend')}}/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+	<link href="{{asset('backend')}}/assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+	<!-- loader-->
+	<link href="{{asset('backend')}}/assets/css/pace.min.css" rel="stylesheet" />
+	<script src="{{asset('backend')}}/assets/js/pace.min.js"></script>
+	<!-- Bootstrap CSS -->
+	<link href="{{asset('backend')}}/assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="{{asset('backend')}}/assets/css/app.css" rel="stylesheet">
+	<link href="{{asset('backend')}}/assets/css/icons.css" rel="stylesheet">
+	<title>Admin login</title>
 </head>
 
-<body class="auth-body-bg">
-    <div class="bg-overlay"></div>
-    <div class="wrapper-page">
-        <div class="container-fluid p-0">
-            <div class="card">
-                <div class="card-body">
+<body class="bg-login">
+	<!--wrapper-->
+	<div class="wrapper">
+		<div class="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-0">
+			<div class="container-fluid">
+				<div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
+					<div class="col mx-auto">
+						<div class="mb-4 text-center">
+							<img src="{{asset('backend')}}/assets/images/logo-img.png" width="180" alt="" />
+						</div>
+						<div class="card">
+							<div class="card-body">
+								<div class="border p-4 rounded">
+									<div class="text-center">
+										<h3 class="">Admin Sign in</h3>
 
-                    <div class="text-center mt-4">
-                        <div class="mb-3">
-                            <a href="index-2.html" class="auth-logo">
-                                <img src="{{ asset('backend') }}/assets/images/logo-dark.png" height="30"
-                                    class="logo-dark mx-auto" alt="">
-                                <img src="{{ asset('backend') }}/assets/images/logo-light.png" height="30"
-                                    class="logo-light mx-auto" alt="">
-                            </a>
-                        </div>
-                    </div>
 
-                    <h4 class="text-muted text-center font-size-18"><b>Admin Sign In</b></h4>
+									</div>
+										<hr/>
+									</div>
+									<div class="form-body">
+                                        <form method="POST" action="{{ route('login') }}">
+                                            @csrf
+											<div class="col-12">
+												<label for="email"  class="form-label">Email Address</label>
+												<input type="email" class="form-control" id="email" name="email" autofocus
+                                                required="" autocomplete="username"  placeholder="Email Address">
+                                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+											</div>
+											<div class="col-12">
+												<label for="inputChoosePassword" class="form-label mt-2">Enter Password</label>
+												<div class="input-group" id="show_hide_password">
+													<input class="form-control border-end-0" id="password" name="password" type="password"
+                                                    required="" autocomplete="current-password" placeholder="Password">
+                                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-check form-switch">
+													<input class="form-check-input"  id="remember_me" type="checkbox"   name="remember"  checked>
+													<label class="form-check-label" for="remember_me">Remember Me</label>
+												</div>
+											</div>
+											<div class="col-md-6 text-end">
+                                                @if (Route::has('admin.forgot.password'))
+                                                <a href="" class="text-muted"><i
+                                                    class="mdi mdi-lock"></i> Forgot your password?</a>
+                                               @endif
+											</div>
+											<div class="col-12">
+												<div class="d-grid">
+													<button type="submit" class="btn btn-primary mt-2"><i class="bx bxs-lock-open"></i>Sign in</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end row-->
+			</div>
+		</div>
+	</div>
 
-                    <div class="p-3">
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <div class="form-group mb-3 row">
-                                <div class="col-12">
-                                    <input class="form-control" id="email" type="email" name="email" autofocus
-                                        required="" placeholder="Email" autocomplete="username">
-                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
 
-                                </div>
-                            </div>
+    <script src="{{asset('backend')}}/assets/js/bootstrap.bundle.min.js"></script>
+	<!--plugins-->
 
-                            <div class="form-group mb-3 row">
-                                <div class="col-12">
+	<script src="{{asset('backend')}}/assets/js/jquery.min.js"></script>
+	<script src="{{asset('backend')}}/assets/plugins/simplebar/js/simplebar.min.js"></script>
+	<script src="{{asset('backend')}}/assets/plugins/metismenu/js/metisMenu.min.js"></script>
+	<script src="{{asset('backend')}}/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+	<!--Password show & hide js -->
+	<script>
+		$(document).ready(function () {
+			$("#show_hide_password a").on('click', function (event) {
+				event.preventDefault();
+				if ($('#show_hide_password input').attr("type") == "text") {
+					$('#show_hide_password input').attr('type', 'password');
+					$('#show_hide_password i').addClass("bx-hide");
+					$('#show_hide_password i').removeClass("bx-show");
+				} else if ($('#show_hide_password input').attr("type") == "password") {
+					$('#show_hide_password input').attr('type', 'text');
+					$('#show_hide_password i').removeClass("bx-hide");
+					$('#show_hide_password i').addClass("bx-show");
+				}
+			});
+		});
+	</script>
+	<!--app JS-->
+	<script src="{{asset('backend')}}/assets/js/app.js"></script>
 
-                                    <input class="form-control" id="password" name="password" type="password"
-                                        required="" autocomplete="current-password" placeholder="Password">
-
-                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                                </div>
-                            </div>
-
-                            <div class="form-group mb-3 row">
-                                <div class="col-12">
-                                    <div class="custom-control custom-checkbox">
-                                        <label for="remember_me" class="inline-flex items-center">
-                                            <input id="remember_me" type="checkbox"
-                                                class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
-                                                name="remember">
-                                            <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group mb-3 text-center row mt-3 pt-1">
-                                <div class="col-12">
-                                    <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Log
-                                        In</button>
-                                </div>
-                            </div>
-
-                            <div class="form-group mb-0 row mt-2">
-                                <div class="col-sm-7 mt-3">
-                                    @if (Route::has('admin.forgot.password'))
-                                        <a href="{{ route('admin.forgot.password') }}" class="text-muted"><i
-                                                class="mdi mdi-lock"></i> Forgot your password?</a>
-                                    @endif
-                                </div>
-
-                            </div>
-                        </form>
-                    </div>
-                    <!-- end -->
-                </div>
-                <!-- end cardbody -->
-            </div>
-            <!-- end card -->
-        </div>
-        <!-- end container -->
-    </div>
-    <!-- end -->
-
-    <!-- JAVASCRIPT -->
-    <script src="{{ asset('backend') }}/assets/libs/jquery/jquery.min.js"></script>
-    <script src="{{ asset('backend') }}/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('backend') }}/assets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="{{ asset('backend') }}/assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="{{ asset('backend') }}/assets/libs/node-waves/waves.min.js"></script>
-
-    <script src="{{ asset('backend') }}/assets/js/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>
@@ -152,7 +150,4 @@
         @endif
     </script>
 </body>
-
-<!-- Mirrored from themesdesign.in/upcube/layouts/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Feb 2023 16:22:01 GMT -->
-
 </html>
