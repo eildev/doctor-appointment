@@ -1,10 +1,10 @@
 <div class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="{{asset('backend')}}/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+            <img src="{{ asset('backend') }}/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
         </div>
         <div>
-            <h4 class="logo-text">Rukada</h4>
+            <h4 class="logo-text">Dr Appoinment</h4>
         </div>
         <div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
         </div>
@@ -22,7 +22,20 @@
                 </li>
                 <li> <a href="dashboard-eCommerce.html"><i class="bx bx-right-arrow-alt"></i>eCommerce</a>
                 </li>
-               
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Dr Info</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('add.dr.info') }}"><i class="bx bx-right-arrow-alt"></i>Add Dr Info</a>
+                </li>
+                <li> <a href="{{ route('view.dr.info') }}"><i class="bx bx-right-arrow-alt"></i>Manage Dr Info</a>
+                </li>
             </ul>
         </li>
         <li>

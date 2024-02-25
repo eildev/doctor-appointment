@@ -1,75 +1,92 @@
 @extends('backend.admin_master')
 @section('admin')
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card border-top border-0 border-3 border-info">
+                    <form action="{{ Route('store.dr.info') }}" method="POST">
+                        @csrf
+                        <div class="card-body">
+                            <div class="border p-4 rounded">
 
-<div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-body">
-              <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-               <h4>Add Fotter Page</h4><br>
-            <div class="page-title-right">
-               <ol class="breadcrumb m-0">
-                <li class="breadcrumb-item active">
-                    <a href="{{route('view.footer')}}" class=" btn btn-sm btn-primary text-light fs-4"> +</a>
-                </li>
-              </ol>
-            </div>
-            </div>
-                <hr>
-                <form action="{{route('store.footer')}}" method="post">
-                    @csrf
-                <div class="row mb-3">
-                    <label for="example-text-input" class="col-sm-2 col-form-label">Full Address</label>
-                    <div class="col-sm-10">
-                       <textarea id="" class="form-control" name="fullAddress" placeholder="Enter  Your Address"  cols="60" rows="10"></textarea>
-                    </div>
-                </div>
-                <!-- end row -->
+                                <div class="card-title d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0 text-info">Add Dr Info</h5>
 
-                <!-- end row -->
-                <div class="row mb-3">
-                    <label for="example-email-input" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" name="email" type="email" placeholder="Enter Your Email" id="example-email-input">
-                    </div>
+                                    <a href="{{ route('view.dr.info') }}" class="btn btn-info btn-sm text-light ">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </a>
+                                </div>
+
+                                <hr>
+                                <div class="row mb-3">
+                                    <label for="inputEnterYourName" class="col-sm-3 col-form-label">Dr Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="dr_name"
+                                            class="form-control @error('dr_name') is-invalid  @enderror"
+                                            id="inputEnterYourName" value="{{ old('dr_name') }}"
+                                            placeholder="Enter Doctor Name">
+                                        <input type="hidden" value="{{ Auth::user()->id }}" name="dr_id">
+                                        @error('dr_name')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="image" class="col-sm-3 col-form-label">Dr Specialization</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                            class="form-control  @error('dr_specialization') is-invalid  @enderror"
+                                            name="dr_specialization" placeholder="Enter Doctor Specification">
+                                        @error('dr_specialization')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="image" class="col-sm-3 col-form-label">Dr Qualification</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                            class="form-control  @error('dr_qualification') is-invalid  @enderror"
+                                            name="dr_qualification" placeholder="Enter Doctor Qualification">
+                                        @error('dr_qualification')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="image" class="col-sm-3 col-form-label">Dr Experience</label>
+                                    <div class="col-sm-9">
+                                        <input type="number"
+                                            class="form-control  @error('dr_experience') is-invalid  @enderror"
+                                            name="dr_experience" placeholder="Enter Doctor Experience">
+                                        @error('dr_experience')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="" class="col-sm-3 form-label">Dr Bio</label>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control @error('dr_bio') is-invalid  @enderror" name="dr_bio" placeholder="Enter Dr Bio"
+                                            style="resize: none; height: 100px;" id="product_descriptions"></textarea>
+                                        @error('dr_bio')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-3 col-form-label"></label>
+                                    <div class="col-sm-9">
+                                        <button type="submit" class="btn btn-info px-5">Add Info</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="row mb-3">
-                    <label for="example-input" class="col-sm-2 col-form-label">Location</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text" name="location" placeholder="Enter Your Location" id="example-input">
-                    </div>
-                </div>
-                <!-- end row -->
-                <div class="row mb-3">
-                    <label for="example-url-input" class="col-sm-2 col-form-label">Link</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" name="link" type="url" placeholder="https://example.com" id="example-url-input">
-                    </div>
-                </div>
-                <!-- end row -->
-                <div class="row mb-3">
-                    <label for="example-tel-input" class="col-sm-2 col-form-label">Website</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text" name="website" placeholder="Enter your Website Link" id="example-tel-input">
-                    </div>
-                </div>
-                <!-- end row -->
-                <div class="row mb-3">
-                    <label for="example-number-input" class="col-sm-2 col-form-label">Phone Number</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" name="phone" type="text" placeholder="Enter Your Number" value="+880" id="example-number-input">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="example-number-input" class="col-sm-2 col-form-label"></label>
-                    <div class="col-sm-10">
-                        <input  type="submit" class="btn btn-info ">
-                    </div>
-                </div>
-            </form>
-                <!-- end row -->
             </div>
         </div>
-    </div> <!-- end col -->
-</div>
+        <!--end row-->
+    </div>
 @endsection

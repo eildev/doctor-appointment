@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('specialization');
             $table->string('qualification');
             $table->integer('experience_years');
-            $table->integer('bio');
+            $table->text('bio');
             $table->foreign('dr_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
