@@ -39,28 +39,36 @@
                             <th>Qualification</th>
                             <th>Experience</th>
                             <th>Bio</th>
-                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                       @if ()
-                       @foreach ($allData as $key => $item)
-                       <tr>
-                        <td>{{$key+1}}</td>
-                        <td>{{ Illuminate\Support\Str::limit($item->name, 15) }}</td>
-                        <td>{{ Illuminate\Support\Str::limit($item->specialization, 15) }}</td>
-                        <td>{{ Illuminate\Support\Str::limit($item->qualification, 15) }}</td>
-                        <td>{{ Illuminate\Support\Str::limit($item->experience_years, 15) }}</td>
-                        <td>{{ Illuminate\Support\Str::limit($item->bio, 15) }}</td>
-                        <td></td>
-                       </tr>
-                       @endforeach
-                       @else
-                           <tr>
-                            <td>No Data found</td>
-                           </tr>
-                       @endif
+                        @if ($allData->count() > 0)
+                            @foreach ($allData as $key => $item)
+                                <tr>
+                                    <td>{{ $key + 1 }}</td>
+                                    <td>{{ Illuminate\Support\Str::limit($item->name, 15) }}</td>
+                                    <td>{{ Illuminate\Support\Str::limit($item->specialization, 15) }}</td>
+                                    <td>{{ Illuminate\Support\Str::limit($item->qualification, 15) }}</td>
+                                    <td>{{ Illuminate\Support\Str::limit($item->experience_years, 15) }}</td>
+                                    <td>{{ Illuminate\Support\Str::limit($item->bio, 15) }}</td>
+                                    <td>
+                                        <a href="{{ route('edit.dr.info', $item->id) }}"
+                                            class="btn btn-outline-secondary btn-sm edit" title="Edit">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </a>
+                                        <a id="delete" href="{{ route('delete.dr.info', $item->id) }}"
+                                            class="btn btn-outline-secondary btn-sm edit" title="delete">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <td>No Data found</td>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>

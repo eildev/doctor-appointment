@@ -104,34 +104,7 @@
               font-weight: 700px;
           }
       </style>
-      </body>
 
-      </html>
-//////////////
-<script src="{{ asset('backend') }}/assets/js/bootstrap.bundle.min.js"></script>
-<!--plugins-->
-<script src="{{ asset('backend') }}/assets/js/jquery.min.js"></script>
-<script src="{{ asset('backend') }}/assets/plugins/simplebar/js/simplebar.min.js"></script>
-<script src="{{ asset('backend') }}/assets/plugins/metismenu/js/metisMenu.min.js"></script>
-<script src="{{ asset('backend') }}/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-<script src="{{ asset('backend') }}/assets/plugins/chartjs/js/Chart.min.js"></script>
-<script src="{{ asset('backend') }}/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
-<script src="{{ asset('backend') }}/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
-<script src="{{ asset('backend') }}/assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
-<script src="{{ asset('backend') }}/assets/plugins/sparkline-charts/jquery.sparkline.min.js"></script>
-<script src="{{ asset('backend') }}/assets/plugins/jquery-knob/excanvas.js"></script>
-<script src="{{ asset('backend') }}/assets/plugins/jquery-knob/jquery.knob.js"></script>
-  <script>
-      $(function() {
-          $(".knob").knob();
-      });
-  </script>
-  <script src="{{ asset('backend') }}/assets/js/index.js"></script>
-<!--app JS-->
-<script src="{{ asset('backend') }}/assets/js/app.js"></script>
-<script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
-<script src="{{ asset('backend/assets/js/code.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
       <script src="{{ asset('backend') }}/assets/js/bootstrap.bundle.min.js"></script>
       <!--plugins-->
@@ -215,7 +188,38 @@
               });
           });
       </script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+      <script>
+          $(document).ready(function() {
+              //    delete function
+              $(document).on('click', '#delete', function(e) {
+                  e.preventDefault();
+
+                  var link = $(this).attr("href");
+
+                  Swal.fire({
+                      title: 'Are you sure?',
+                      text: "You won't be able to revert this!",
+                      icon: 'warning',
+                      showCancelButton: true,
+                      confirmButtonColor: '#3085d6',
+                      cancelButtonColor: '#d33',
+                      confirmButtonText: 'Yes, delete it!'
+                  }).then((result) => {
+                      if (result.isConfirmed) {
+                          window.location.href = link
+                          Swal.fire(
+                              'Deleted!',
+                              'Your File has been deleted.',
+                              'success'
+                          )
+                      }
+                  })
+
+              });
+          });
+      </script>
       </body>
 
       </html>
