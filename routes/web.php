@@ -58,7 +58,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/dr-info/edit/{id}', 'edit')->name('edit.dr.info');
         Route::post('/dr-info/update/{id}', 'update')->name('update.dr.info');
         Route::get('/dr-info/delete/{id}', 'delete')->name('delete.dr.info');
-        Route::get('/dr-info/status/{id}', 'status')->name('status.dr.info');
+        // Route::get('/dr-info/status/{id}', 'status')->name('status.dr.info');
     });
 
     // home settings related routes
