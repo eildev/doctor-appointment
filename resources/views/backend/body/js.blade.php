@@ -80,6 +80,7 @@
                   reader.readAsDataURL(e.target.files['0']);
               });
           });
+
           $(document).ready(function() {
               $('#image2').change(function(e) {
                   var reader = new FileReader();

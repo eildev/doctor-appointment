@@ -62,7 +62,11 @@ class AdminController extends Controller
            $data['photo'] = $filename;
         }
         $data->save();
-        return redirect()->route('admin.profile');
+        $notification = array(
+            'message' =>'Admin Profile Updated Sccessfully',
+            'alert-type'=> 'info'
+         );
+        return redirect()->route('admin.profile')->with($notification);
     }//End MEthod
     public function AdminChangePassword(){
         return view('backend.admin_profile.change_password');
