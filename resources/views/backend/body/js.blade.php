@@ -1,5 +1,6 @@
       <!-- JAVASCRIPT -->
-      <script src="{{ asset('backend') }}/assets/libs/jquery/jquery.min.js"></script>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="{{ asset('backend') }}/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
       <script src="{{ asset('backend') }}/assets/libs/metismenu/metisMenu.min.js"></script>
       <script src="{{ asset('backend') }}/assets/libs/simplebar/simplebar.min.js"></script>
@@ -31,7 +32,7 @@
       {{-- tags input  --}}
       <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
 
-      <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
+      {{-- <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script> --}}
       <script>
           @if (Session::has('message'))
               toastr.options = {
@@ -129,7 +130,7 @@
       <script src="{{ asset('backend') }}/assets/js/app.js"></script>
       <script src="{{ asset('backend/assets/js/code.js') }}"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-      <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
+
       <script>
           @if (Session::has('message'))
               toastr.options = {
@@ -189,7 +190,7 @@
           });
       </script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+      <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
       <script>
           $(document).ready(function() {
               //    delete function

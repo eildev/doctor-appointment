@@ -92,7 +92,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/delete-social-icon/{id}', 'delete')->name('delete.social.icon');
         Route::post('/social-icon-status/{id}', 'status')->name('social.icon.status');
     });
-    //Category Related Routes
+    //Gallery Category Related Routes
     Route::controller(CategoryController::class)->group(function () {
         Route::get('/category/add', 'CategoryAdd')->name('category.add');
         Route::post('/category/store', 'StoreCategory')->name('store.category');
@@ -193,14 +193,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/delete-our-partner/{id}', 'delete')->name('delete.our-partner');
         Route::post('/our-partner-status/{id}', 'status')->name('our-partner.status');
     });
+     // News Education Training  routes
     Route::controller(EducationTrainingCotroller::class)->group(function () {
         Route::get('/education/training/add', 'AddEducationTraining')->name('add.education.training');
         Route::post('/education/training/store', 'StoreEducationTraining')->name('store.education.training');
         Route::get('/education/training/view', 'ViewEducationTraining')->name('view.education.training');
         Route::get('/education/training/edit/{id}', 'EditEducationTraining')->name('edit.education.training');
         Route::post('/education/training/update/{id}', 'UpdateEducationTraining')->name('update.education.training');
-        // Route::get('/delete-our-partner/{id}', 'delete')->name('delete.our-partner');
-        // Route::post('/our-partner-status/{id}', 'status')->name('our-partner.status');
+        Route::get('/education/training/delete/{id}', 'DeleteEducationTraining')->name('delete.education.training');
     });
 
 

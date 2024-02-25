@@ -62,7 +62,7 @@
                 <div class="row mb-3">
                     <label for="example-number-input" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
-                        <input  type="submit" class="btn btn-info ">
+                        <input  type="submit" value="submit" class="btn btn-info ">
                     </div>
                 </div>
             </form>
@@ -71,8 +71,9 @@
         </div>
     </div> <!-- end col -->
 </div>
+
 <script type="text/javascript">
-    $(document).ready(function (){
+    jQuery(document).ready(function (){
         $('#myForm').validate({
             rules: {
                 institution_name: {
@@ -117,6 +118,5 @@
             },
         });
     });
-
 </script>
 @endsection
