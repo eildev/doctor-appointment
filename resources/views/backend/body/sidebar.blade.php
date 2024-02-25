@@ -4,7 +4,7 @@
             <img src="{{ asset('backend') }}/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
         </div>
         <div>
-            <h4 class="logo-text">Dr Appoinment</h4>
+            <h4 class="logo-text fs-5">Dr Appoinment</h4>
         </div>
         <div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
         </div>
@@ -55,7 +55,6 @@
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
-                <div class="menu-title">Application</div>
                 <div class="menu-title">Education & Training</div>
             </a>
             <ul>

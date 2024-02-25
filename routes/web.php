@@ -3,8 +3,6 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\AdminController;
-use App\Http\Controllers\Backend\HomeSettingsController;
-use App\Http\Controllers\Backend\FooterController;
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\SocialIconController;
 use App\Http\Controllers\Backend\GalleryController;
@@ -19,6 +17,7 @@ use App\Http\Controllers\Backend\OurPartnerController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\WhyChooseUsController;
 use App\Http\Controllers\Backend\EducationTrainingCotroller;
+use App\Http\Controllers\Backend\PatientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,13 +63,13 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
     // home settings related routes
-    Route::controller(HomeSettingsController::class)->group(function () {
-        Route::get('/add-home-setting', 'index')->name('home.settings');
-        Route::post('/add-home-setting/store', 'store')->name('home.settings.store');
-        Route::get('/manage-home-setting', 'view')->name('manage.home.settings');
-        Route::get('/edit-home-setting/{id}', 'edit')->name('edit.home.settings');
-        Route::post('/update-home-setting/{id}', 'update')->name('update.home.settings');
-        Route::get('/delete-home-setting/{id}', 'delete')->name('delete.home.settings');
+    Route::controller(PatientController::class)->group(function () {
+        Route::get('/patient/add', 'index')->name('add.patient');
+        Route::post('/patient/store', 'store')->name('patient.store');
+        Route::get('/patient/view', 'view')->name('patient.view');
+        Route::get('/patient/edit/{id}', 'edit')->name('patient.edit');
+        Route::post('/patient/update/{id}', 'update')->name('patient.update');
+        Route::get('/patient/delete/{id}', 'delete')->name('patient.delete');
     });
 
     // About related routes
@@ -204,9 +203,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         // Route::get('/delete-our-partner/{id}', 'delete')->name('delete.our-partner');
         // Route::post('/our-partner-status/{id}', 'status')->name('our-partner.status');
     });
-
-
-});//End Middleware
+}); //End Middleware
 
 
 Route::middleware('auth')->group(function () {
