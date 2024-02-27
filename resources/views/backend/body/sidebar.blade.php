@@ -4,7 +4,7 @@
             <img src="{{ asset('backend') }}/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
         </div>
         <div>
-            <h4 class="logo-text">Dr Appoinment</h4>
+            <h4 class="logo-text fs-5">Dr Appoinment</h4>
         </div>
         <div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
         </div>
@@ -55,13 +55,15 @@
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
-               
+
                 <div class="menu-title">Education & Training</div>
             </a>
             <ul>
-                <li> <a href="{{ route('add.education.training') }}"><i class="bx bx-right-arrow-alt"></i>Add Edu Training</a>
+                <li> <a href="{{ route('add.education.training') }}"><i class="bx bx-right-arrow-alt"></i>Add Edu
+                        Training</a>
                 </li>
-                <li> <a href="{{ route('view.education.training') }}"><i class="bx bx-right-arrow-alt"></i>Manage Edu Training</a>
+                <li> <a href="{{ route('view.education.training') }}"><i class="bx bx-right-arrow-alt"></i>Manage Edu
+                        Training</a>
                 </li>
             </ul>
         </li>
@@ -72,9 +74,9 @@
                 <div class="menu-title">Gallery Category</div>
             </a>
             <ul>
-                <li> <a href="{{route('category.add')}}"><i class="bx bx-right-arrow-alt"></i>Add  Category</a>
+                <li> <a href="{{ route('category.add') }}"><i class="bx bx-right-arrow-alt"></i>Add Category</a>
                 </li>
-                <li> <a href="{{route('category.view')}}"><i class="bx bx-right-arrow-alt"></i>Manage  Category</a>
+                <li> <a href="{{ route('category.view') }}"><i class="bx bx-right-arrow-alt"></i>Manage Category</a>
                 </li>
 
 
@@ -87,17 +89,42 @@
                 <div class="menu-title">Gallery</div>
             </a>
             <ul>
-                <li> <a href="{{route('gallery.add')}}"><i class="bx bx-right-arrow-alt"></i>Add Gallery </a>
+                <li> <a href="{{ route('gallery.add') }}"><i class="bx bx-right-arrow-alt"></i>Add Gallery </a>
                 </li>
-                <li> <a href="{{route('gallery.view')}}"><i class="bx bx-right-arrow-alt"></i>Manage Gallery </a>
+                <li> <a href="{{ route('gallery.view') }}"><i class="bx bx-right-arrow-alt"></i>Manage Gallery </a>
                 <li> <a href="{{ route('add.education.training') }}"><i class="bx bx-right-arrow-alt"></i>Add Edu &
                         Training</a>
                 </li>
                 <li> <a href="{{ route('view.education.training') }}"><i class="bx bx-right-arrow-alt"></i>Manage Edu &
                         Training</a>
                 </li>
-
-
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Patient</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('add.patient') }}"><i class="bx bx-right-arrow-alt"></i>Add Patient</a>
+                </li>
+                <li> <a href="{{ route('patient.view') }}"><i class="bx bx-right-arrow-alt"></i>Manage Patient</a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-label">Overview</li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Dr Manager</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('doctor.view') }}"><i class="bx bx-right-arrow-alt"></i>All Doctor</a>
+                </li>
+                <li> <a href="{{ route('patient.view') }}"><i class="bx bx-right-arrow-alt"></i>Manage Doctor</a>
+                </li>
             </ul>
         </li>
         <li class="menu-label">UI Elements</li>
@@ -170,7 +197,8 @@
             <ul>
                 <li> <a class="has-arrow" href="javascript:;"><i class="bx bx-right-arrow-alt"></i>Level One</a>
                     <ul>
-                        <li> <a class="has-arrow" href="javascript:;"><i class="bx bx-right-arrow-alt"></i>Level Two</a>
+                        <li> <a class="has-arrow" href="javascript:;"><i class="bx bx-right-arrow-alt"></i>Level
+                                Two</a>
                             <ul>
                                 <li> <a href="javascript:;"><i class="bx bx-right-arrow-alt"></i>Level Three</a>
                                 </li>

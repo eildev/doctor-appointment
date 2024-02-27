@@ -3,13 +3,12 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\AdminController;
-use App\Http\Controllers\Backend\HomeSettingsController;
-use App\Http\Controllers\Backend\FooterController;
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\SocialIconController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DrInfoController;
+use App\Http\Controllers\Backend\DrManagerController;
 use App\Http\Controllers\Backend\ServicesController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\ManagingTeamController;
@@ -19,6 +18,7 @@ use App\Http\Controllers\Backend\OurPartnerController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\WhyChooseUsController;
 use App\Http\Controllers\Backend\EducationTrainingCotroller;
+use App\Http\Controllers\Backend\PatientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,14 +63,23 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         // Route::get('/dr-info/status/{id}', 'status')->name('status.dr.info');
     });
 
-    // home settings related routes
-    Route::controller(HomeSettingsController::class)->group(function () {
-        Route::get('/add-home-setting', 'index')->name('home.settings');
-        Route::post('/add-home-setting/store', 'store')->name('home.settings.store');
-        Route::get('/manage-home-setting', 'view')->name('manage.home.settings');
-        Route::get('/edit-home-setting/{id}', 'edit')->name('edit.home.settings');
-        Route::post('/update-home-setting/{id}', 'update')->name('update.home.settings');
-        Route::get('/delete-home-setting/{id}', 'delete')->name('delete.home.settings');
+    // Patient related routes
+    Route::controller(PatientController::class)->group(function () {
+        Route::get('/patient/add', 'index')->name('add.patient');
+        Route::post('/patient/store', 'store')->name('patient.store');
+        Route::get('/patient/view', 'view')->name('patient.view');
+        Route::get('/patient/edit/{id}', 'edit')->name('patient.edit');
+        Route::post('/patient/update/{id}', 'update')->name('patient.update');
+        Route::get('/patient/delete/{id}', 'delete')->name('patient.delete');
+    });
+    // Dr related routes
+    Route::controller(DrManagerController::class)->group(function () {
+        // Route::get('/patient/add', 'index')->name('add.patient');
+        // Route::post('/patient/store', 'store')->name('patient.store');
+        Route::get('/doctor/view', 'view')->name('doctor.view');
+        Route::get('/patient/edit/{id}', 'edit')->name('patient.edit');
+        Route::post('/patient/update/{id}', 'update')->name('patient.update');
+        Route::get('/patient/delete/{id}', 'delete')->name('patient.delete');
     });
 
     // About related routes
@@ -195,7 +204,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/delete-our-partner/{id}', 'delete')->name('delete.our-partner');
         Route::post('/our-partner-status/{id}', 'status')->name('our-partner.status');
     });
-     // News Education Training  routes
+    // News Education Training  routes
     Route::controller(EducationTrainingCotroller::class)->group(function () {
         Route::get('/education/training/add', 'AddEducationTraining')->name('add.education.training');
         Route::post('/education/training/store', 'StoreEducationTraining')->name('store.education.training');
@@ -204,9 +213,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/education/training/update/{id}', 'UpdateEducationTraining')->name('update.education.training');
         Route::get('/education/training/delete/{id}', 'DeleteEducationTraining')->name('delete.education.training');
     });
-
-
-});//End Middleware
+}); //End Middleware
 
 
 Route::middleware('auth')->group(function () {
