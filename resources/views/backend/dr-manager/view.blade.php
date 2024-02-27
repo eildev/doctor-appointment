@@ -34,10 +34,12 @@
                     <thead>
                         <tr>
                             <th>SN</th>
-                            <th>Patient Name</th>
-                            <th>Mobile</th>
+                            <th>Dr.Info</th>
                             <th>Email</th>
+                            <th>Mobile</th>
                             <th>Address</th>
+                            <th>Role</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -46,10 +48,21 @@
                             @foreach ($allData as $key => $item)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td>{{ Illuminate\Support\Str::limit($item->patient_name, 15) }}</td>
-                                    <td>{{ Illuminate\Support\Str::limit($item->mobile, 15) }}</td>
-                                    <td>{{ Illuminate\Support\Str::limit($item->email, 15) }}</td>
-                                    <td>{{ Illuminate\Support\Str::limit($item->address, 15) }}</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                                style="width: 45px; height: 45px" class="rounded-circle" />
+                                            <div class="ms-3">
+                                                <p class="fw-bold mb-1">John Doe</p>
+                                                <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{{ Illuminate\Support\Str::limit($item->email ?? '', 15) }}</td>
+                                    <td>{{ Illuminate\Support\Str::limit($item->mobile ?? '', 15) }}</td>
+                                    <td>{{ Illuminate\Support\Str::limit($item->address ?? '', 15) }}</td>
+                                    <td></td>
+                                    <td></td>
                                     <td>
                                         <a href="{{ route('patient.edit', $item->id) }}"
                                             class="btn btn-outline-secondary btn-sm edit" title="Edit">

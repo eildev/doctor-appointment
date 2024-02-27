@@ -98,8 +98,33 @@
                 <li> <a href="{{ route('view.education.training') }}"><i class="bx bx-right-arrow-alt"></i>Manage Edu &
                         Training</a>
                 </li>
-
-
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Patient</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('add.patient') }}"><i class="bx bx-right-arrow-alt"></i>Add Patient</a>
+                </li>
+                <li> <a href="{{ route('patient.view') }}"><i class="bx bx-right-arrow-alt"></i>Manage Patient</a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-label">Overview</li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Dr Manager</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('doctor.view') }}"><i class="bx bx-right-arrow-alt"></i>All Doctor</a>
+                </li>
+                <li> <a href="{{ route('patient.view') }}"><i class="bx bx-right-arrow-alt"></i>Manage Doctor</a>
+                </li>
             </ul>
         </li>
         <li class="menu-label">UI Elements</li>

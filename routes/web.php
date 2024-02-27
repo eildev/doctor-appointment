@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\SocialIconController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DrInfoController;
+use App\Http\Controllers\Backend\DrManagerController;
 use App\Http\Controllers\Backend\ServicesController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\ManagingTeamController;
@@ -62,11 +63,20 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         // Route::get('/dr-info/status/{id}', 'status')->name('status.dr.info');
     });
 
-    // home settings related routes
+    // Patient related routes
     Route::controller(PatientController::class)->group(function () {
         Route::get('/patient/add', 'index')->name('add.patient');
         Route::post('/patient/store', 'store')->name('patient.store');
         Route::get('/patient/view', 'view')->name('patient.view');
+        Route::get('/patient/edit/{id}', 'edit')->name('patient.edit');
+        Route::post('/patient/update/{id}', 'update')->name('patient.update');
+        Route::get('/patient/delete/{id}', 'delete')->name('patient.delete');
+    });
+    // Dr related routes
+    Route::controller(DrManagerController::class)->group(function () {
+        // Route::get('/patient/add', 'index')->name('add.patient');
+        // Route::post('/patient/store', 'store')->name('patient.store');
+        Route::get('/doctor/view', 'view')->name('doctor.view');
         Route::get('/patient/edit/{id}', 'edit')->name('patient.edit');
         Route::post('/patient/update/{id}', 'update')->name('patient.update');
         Route::get('/patient/delete/{id}', 'delete')->name('patient.delete');
@@ -194,7 +204,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/delete-our-partner/{id}', 'delete')->name('delete.our-partner');
         Route::post('/our-partner-status/{id}', 'status')->name('our-partner.status');
     });
-     // News Education Training  routes
+    // News Education Training  routes
     Route::controller(EducationTrainingCotroller::class)->group(function () {
         Route::get('/education/training/add', 'AddEducationTraining')->name('add.education.training');
         Route::post('/education/training/store', 'StoreEducationTraining')->name('store.education.training');
