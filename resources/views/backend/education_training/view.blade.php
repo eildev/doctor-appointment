@@ -45,7 +45,7 @@
                                <a class="btn btn-sm btn-warning" href="{{route('edit.education.training',$item->id)}}"><i class="fas fa-edit"></i></a>
 
                            <a href="{{route('delete.education.training',$item->id)}}" id="delete" class="btn btn-sm btn-danger">
-                               <i class="fas fa-trash-alt"></i></a></td>
+                            <i class="fas fa-trash-alt"></i></a></td>
                            </tr>
                        @endforeach
 
