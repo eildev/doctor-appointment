@@ -113,6 +113,43 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Appointment</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('appointment.view') }}"><i class="bx bx-right-arrow-alt"></i>All Appointment</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Consulting Center</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('add.consulting.center') }}"><i class="bx bx-right-arrow-alt"></i>Add Consulting C.</a>
+                </li>
+                <li> <a href="{{route('view.consulting.center')}}"><i class="bx bx-right-arrow-alt"></i>All Consulting C.</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Image Or Video</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('add.image.video') }}"><i class="bx bx-right-arrow-alt"></i>Add Image/Video</a>
+                </li>
+                <li> <a href="{{route('view.image.video')}}"><i class="bx bx-right-arrow-alt"></i>View Image/Video</a>
+                </li>
+            </ul>
+        </li>
         <li class="menu-label">Overview</li>
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -127,6 +164,7 @@
                 </li>
             </ul>
         </li>
+
         <li class="menu-label">UI Elements</li>
         <li>
             <a href="javascript:;" class="has-arrow">

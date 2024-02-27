@@ -93,7 +93,7 @@ a {
 
 .page-wrapper {
 	height: 100%;
-	margin-top: 60px;
+	margin-top: 30px;
 	margin-bottom: 30px;
 	margin-left: 250px
 }
@@ -792,7 +792,7 @@ a {
 	color: #32393f;
   }
 
-  
+
   .w_chart canvas {
 	position: absolute;
 	top: 0;
@@ -1660,11 +1660,11 @@ a {
 .text-facebook{
 	color: #3b5998!important
  }
- 
+
  .text-twitter{
 	 color: #55acee!important
   }
- 
+
   .text-youtube{
 	 color: #e52d27!important
   }

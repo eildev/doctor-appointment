@@ -19,6 +19,9 @@ use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\WhyChooseUsController;
 use App\Http\Controllers\Backend\EducationTrainingCotroller;
 use App\Http\Controllers\Backend\PatientController;
+use App\Http\Controllers\Backend\AppointmentController;
+use App\Http\Controllers\Backend\ConsultingCenterController;
+use App\Http\Controllers\Backend\ImageOrVideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -212,6 +215,32 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/education/training/edit/{id}', 'EditEducationTraining')->name('edit.education.training');
         Route::post('/education/training/update/{id}', 'UpdateEducationTraining')->name('update.education.training');
         Route::get('/education/training/delete/{id}', 'DeleteEducationTraining')->name('delete.education.training');
+    });
+    // Appointment  routes
+    Route::controller(AppointmentController::class)->group(function () {
+        Route::get('/all/appointment/', 'AllAppointment')->name('appointment.view');
+        Route::get('/approve/appointment/{id}', 'AppointmentApprove')->name('appointment.approve');
+        Route::get('/cancel/appointment/{id}', 'AppointmentCancel')->name('appointment.canceled');
+        Route::get('/delete/appointment/{id}', 'AppointmentDelete')->name('appointment.delete');
+
+    });
+    // ConSulting Center routes
+    Route::controller(ConsultingCenterController::class)->group(function () {
+        Route::get('/consulting/center/add', 'AddConsultingCenter')->name('add.consulting.center');
+        Route::post('/consulting/center/store', 'StoreConsultingCenter')->name('store.consulting.center');
+        Route::get('/consulting/center/view', 'ViewConsultingCenter')->name('view.consulting.center');
+        Route::get('/consulting/center/edit/{id}', 'EditConsultingCenter')->name('edit.consulting.center');
+        Route::post('/consulting/center/update/{id}', 'UpdateConsultingCenter')->name('update.consulting.center');
+        Route::get('/consulting/center/delete/{id}', 'DeleteConsultingCenter')->name('delete.consulting.center');
+    });
+    // Image Or Video
+    Route::controller(ImageOrVideoController::class)->group(function () {
+        Route::get('/image/video/add', 'AddImageOrVideo')->name('add.image.video');
+        Route::post('/image/video/store', 'StoreImageOrVideo')->name('store.image.video');
+        Route::get('/image/video/view', 'ViewImageOrVideo')->name('view.image.video');
+        Route::get('/image/video/edit/{id}', 'EditImageOrVideo')->name('edit.image.video');
+        Route::post('/image/video/edit/update/{id}', 'UpdateImageOrVideo')->name('update.image.video');
+         Route::get('/image/video/delete/{id}', 'DeleteImageOrVideo')->name('delete.image.video');
     });
 }); //End Middleware
 

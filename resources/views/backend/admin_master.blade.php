@@ -24,6 +24,7 @@
 	<link rel="stylesheet" href="{{asset('backend')}}/assets/css/semi-dark.css" />
 	<link rel="stylesheet" href="{{asset('backend')}}/assets/css/header-colors.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<title>Doctor  Appoinment</title>
 </head>
 
@@ -70,8 +71,9 @@
 	  </script>
 	  <script src="{{asset('backend')}}/assets/js/index.js"></script>
 	<!--app JS-->
-    
+
 	<script src="{{asset('backend')}}/assets/js/app.js"></script>
+
     <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
@@ -118,6 +120,26 @@
         });
         //  image omload function
         $(document).ready(function() {
+    $('#image').change(function(e) {
+        var file = e.target.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            var fileType = file.type.split('/')[0]; // Get the type of file (image or video)
+            if (fileType === 'image') {
+                $('#showMedia').html('<img height="100" width="100" src="' + e.target.result + '" class="img-thumbnail" alt="Image">');
+            } else if (fileType === 'video') {
+                $('#showMedia').html('<video controls autoplay height="200" width="200"><source src="' + e.target.result + '" type="' + file.type + '">Your browser does not support the video tag.</video>');
+            } else {
+                $('#showMedia').html('Unsupported file type');
+            }
+        }
+
+        reader.readAsDataURL(file);
+    });
+});
+
+        $(document).ready(function() {
             $('#image').change(function(e) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
@@ -125,8 +147,6 @@
                 }
                 reader.readAsDataURL(e.target.files['0']);
             });
-        });
-        $(document).ready(function() {
             $('#image2').change(function(e) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
@@ -136,6 +156,7 @@
             });
         });
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>

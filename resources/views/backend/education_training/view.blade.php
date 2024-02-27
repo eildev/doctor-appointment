@@ -42,10 +42,10 @@
                            <td>{{$item->start_year}}</td>
                            <td>{{$item->end_year}}</td>
                            <td>
-                               <a class="btn btn-sm btn-warning" href="{{route('edit.education.training',$item->id)}}"><i class="fas fa-edit"></i></a>
+                               <a class="btn btn-sm btn-warning" href="{{route('edit.education.training',$item->id)}}">Edit</a>
 
                            <a href="{{route('delete.education.training',$item->id)}}" id="delete" class="btn btn-sm btn-danger">
-                            <i class="fas fa-trash-alt"></i></a></td>
+                            Delete</a></td>
                            </tr>
                        @endforeach
 
