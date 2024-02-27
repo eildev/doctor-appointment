@@ -24,21 +24,21 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('social.icon.store') }}" method="POST">
+                        <form action="{{ route('social.icon.store') }}" id="myForm" method="POST">
                             @csrf
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-10 form-group">
                                     <input class="form-control" type="text" placeholder="Enter Social Icon Name"
-                                        id="example-text-input" name="name">
+                                        id="example-text-input" name="platform_name">
                                 </div>
                             </div>
                             <!-- end row -->
                             <div class="row mb-3">
                                 <label for="example-search-input" class="col-sm-2 col-form-label">Link</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="link" placeholder="Please provide social link"
-                                        id="example-search-input" name="link">
+                                <div class="col-sm-10 form-group">
+                                    <input class="form-control" type="url" placeholder="Please provide social link"
+                                        id="example-search-input" name="url">
                                 </div>
                             </div>
                             <!-- end row -->
@@ -56,4 +56,40 @@
 
 
     </div>
+    <script type="text/javascript">
+        jQuery(document).ready(function (){
+            $('#myForm').validate({
+                rules: {
+                    platform_name: {
+                        required : true,
+                    },
+                    url: {
+                        required : true,
+                    },
+
+                },
+                messages :{
+                    platform_name: {
+                        required : 'Please Enter Platform Name',
+                    },
+                    url: {
+                        required : 'Please Enter Url',
+                    },
+
+                },
+                errorElement : 'span',
+                errorPlacement: function (error,element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight : function(element, errorClass, validClass){
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight : function(element, errorClass, validClass){
+                    $(element).removeClass('is-invalid');
+                    $(element).addClass('is-valid');
+                },
+            });
+        });
+    </script>
 @endsection

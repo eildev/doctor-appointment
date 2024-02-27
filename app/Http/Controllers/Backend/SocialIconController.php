@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SocialIcon;
+use Illuminate\Support\Facades\Auth;
 
 class SocialIconController extends Controller
 {
@@ -13,15 +14,17 @@ class SocialIconController extends Controller
     }
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|max:100',
-            'link' => 'required|max:250'
-        ]);
+
         $social = new SocialIcon;
-        $social->name = $request->name;
-        $social->link = $request->link;
+        $social->dr_id = Auth::user()->id;
+        $social->platform_name = $request->platform_name;
+        $social->url = $request->url;
         $social->save();
-        return back()->with('success', 'social icon Successfully Saved');
+        $notification = [
+            'message' => 'social icon Successfully Saved',
+            'alert-type' => 'info'
+        ];
+        return redirect()->route('manage.social.icon')->with($notification );
     }
     public function view()
     {
@@ -36,12 +39,16 @@ class SocialIconController extends Controller
     public function update(Request $request,$id)
     {
         $social = SocialIcon::findOrFail($id);
-        $social->name = $request->name;
-        $social->link = $request->link;
+        $social->platform_name = $request->platform_name;
+        $social->url = $request->url;
         $social->update();
-        return redirect()->route('manage.social.icon')->with('success', 'social icon Successfully updated');
+        $notification = [
+            'message' => 'social icon Successfully Updated',
+            'alert-type' => 'info'
+        ];
+        return redirect()->route('manage.social.icon')->with($notification );
     }
-     
+
      public function delete($id)
      {
         $social = SocialIcon::findOrFail($id);
@@ -56,7 +63,7 @@ class SocialIconController extends Controller
         } else {
             $newStatus = 0;
         }
-         
+
         $social->update([
             'status'=>$newStatus
         ]);

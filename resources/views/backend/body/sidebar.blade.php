@@ -150,6 +150,45 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Social Link</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('social.icon') }}"><i class="bx bx-right-arrow-alt"></i>Add Social</a>
+                </li>
+                <li> <a href="{{route('manage.social.icon')}}"><i class="bx bx-right-arrow-alt"></i>Manage Social</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Hot Link</div>
+            </a>
+            <ul>
+                <li> <a href="{{route('add.hot.link')}}"><i class="bx bx-right-arrow-alt"></i>Add Hot link</a>
+                </li>
+                <li> <a href="{{route('view.hot.link')}}"><i class="bx bx-right-arrow-alt"></i>Manage Hot link</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Contact Info</div>
+            </a>
+            <ul>
+                <li> <a href="{{route('add.contact.info')}}"><i class="bx bx-right-arrow-alt"></i>Add Contact Info</a>
+                </li>
+                {{-- <li> <a href="{{route('view.contact.info')}}"><i class="bx bx-right-arrow-alt"></i>Manage Hot link</a>
+                </li> --}}
+            </ul>
+        </li>
         <li class="menu-label">Overview</li>
         <li>
             <a href="javascript:;" class="has-arrow">

@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('social_icons', function (Blueprint $table) {
+        Schema::create('contact_infos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('dr_id');
             $table->foreign('dr_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string("platform_name");
-            $table->string("url");
+            $table->string('phone');
+            $table->string('email');
+            $table->text('address');
+            $table->string('opening_hours');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('social_icons');
+        Schema::dropIfExists('contact_infos');
     }
 };

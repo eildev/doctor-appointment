@@ -5,18 +5,20 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Update Home Settings</h4>
+                    <h4 class="mb-sm-0">Edit Hot Link</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home Settings</a></li>
-                            <li class="breadcrumb-item active">Update Home Settings</li>
-                        </ol>
-                    </div>
+                         <li class="breadcrumb-item active">
+                             <a href="{{route('view.hot.link')}}" class=" btn btn-sm btn-primary text-light fs-4"> +</a>
+                         </li>
+                       </ol>
+                     </div>
 
                 </div>
             </div>
         </div>
+        <br>
         <!-- end page title -->
 
 
@@ -24,13 +26,13 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('update.social.icon', $data->id) }}" id ="myForm" method="POST">
+                        <form action="{{ route('update.hot.link',$hot_links->id) }}" id="myForm" method="POST">
                             @csrf
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Hot link Title</label>
                                 <div class="col-sm-10 form-group">
-                                    <input class="form-control" type="text" placeholder="Enter Social Icon Name"
-                                        id="example-text-input" name="platform_name" value="{{ $data->platform_name }}">
+                                    <input class="form-control" type="text" placeholder="Enter Hot Link title"
+                                        id="example-text-input" value="{{$hot_links->title}}" name="title">
                                 </div>
                             </div>
                             <!-- end row -->
@@ -38,14 +40,20 @@
                                 <label for="example-search-input" class="col-sm-2 col-form-label">Link</label>
                                 <div class="col-sm-10 form-group">
                                     <input class="form-control" type="url" placeholder="Please provide social link"
-                                        id="example-search-input" name="url" value="{{ $data->url }}">
+                                        id="example-search-input" value="{{$hot_links->url}}" name="url">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="example-search-input" class="col-sm-2 col-form-label">Description</label>
+                                <div class="col-sm-10 form-group">
+                                    <textarea name="description" class="form-control" id="" cols="30" rows="5">{{$hot_links->description}}</textarea>
                                 </div>
                             </div>
                             <!-- end row -->
                             <div class="row mb-3">
                                 <label for="example-number-input" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <input type="submit" class="btn btn-info ">
+                                    <input type="submit" value="Update" class="btn btn-info ">
                                 </div>
                             </div>
                         </form>
@@ -60,20 +68,26 @@
         jQuery(document).ready(function (){
             $('#myForm').validate({
                 rules: {
-                    platform_name: {
+                    title: {
                         required : true,
                     },
                     url: {
+                        required : true,
+                    },
+                    description: {
                         required : true,
                     },
 
                 },
                 messages :{
-                    platform_name: {
-                        required : 'Please Enter Platform Name',
+                    title: {
+                        required : 'Please Enter hot link Title',
                     },
                     url: {
                         required : 'Please Enter Url',
+                    },
+                    description: {
+                        required : 'Please Enter Description',
                     },
 
                 },

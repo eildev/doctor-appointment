@@ -22,6 +22,8 @@ use App\Http\Controllers\Backend\PatientController;
 use App\Http\Controllers\Backend\AppointmentController;
 use App\Http\Controllers\Backend\ConsultingCenterController;
 use App\Http\Controllers\Backend\ImageOrVideoController;
+use App\Http\Controllers\Backend\HotLinkController;
+use App\Http\Controllers\Backend\ContactInfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,7 +105,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/edit-social-icon/{id}', 'edit')->name('edit.social.icon');
         Route::post('/update-social-icon/{id}', 'update')->name('update.social.icon');
         Route::get('/delete-social-icon/{id}', 'delete')->name('delete.social.icon');
-        Route::post('/social-icon-status/{id}', 'status')->name('social.icon.status');
+        // Route::post('/social-icon-status/{id}', 'status')->name('social.icon.status');
     });
     //Gallery Category Related Routes
     Route::controller(CategoryController::class)->group(function () {
@@ -239,11 +241,29 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/image/video/store', 'StoreImageOrVideo')->name('store.image.video');
         Route::get('/image/video/view', 'ViewImageOrVideo')->name('view.image.video');
         Route::get('/image/video/edit/{id}', 'EditImageOrVideo')->name('edit.image.video');
-        Route::post('/image/video/edit/update/{id}', 'UpdateImageOrVideo')->name('update.image.video');
+        Route::post('/image/video/update/{id}', 'UpdateImageOrVideo')->name('update.image.video');
          Route::get('/image/video/delete/{id}', 'DeleteImageOrVideo')->name('delete.image.video');
     });
+    //Hot Link All route
+    Route::controller(HotLinkController::class)->group(function () {
+        Route::get('/add/hot/link', 'AddHotLink')->name('add.hot.link');
+        Route::post('/store/hot/link', 'StoreHotLink')->name('store.hot.link');
+        Route::get('/view/hot/link/', 'ViewHotLink')->name('view.hot.link');
+        Route::get('/edit/hot/link/{id}', 'EditHotLink')->name('edit.hot.link');
+        Route::post('/update/hot/link/{id}', 'UpdateHotLink')->name('update.hot.link');
+         Route::get('/delete/hot/link/{id}', 'DeleteHotLink')->name('delete.hot.link');
+    });
+    //Contact Info All route
+    Route::controller(ContactInfoController::class)->group(function () {
+        Route::get('/add/contact/info', 'AddContactInfo')->name('add.contact.info');
+        Route::post('/store/contact/info', 'StoreContactInfo')->name('store.contact.info');
+        // Route::get('/view/contact/info', 'ViewContactInfo')->name('view.contact.info');
+        // Route::get('/edit/contact/info/{id}', 'EditContactInfo')->name('edit.contact.info');
+        // Route::post('/update/contact/info/{id}', 'UpdateContactInfo')->name('update.contact.info');
+        //  Route::get('/delete/contact/info/{id}', 'DeleteContactInfo')->name('delete.contact.info');
+    });
 }); //End Middleware
-
+//
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
