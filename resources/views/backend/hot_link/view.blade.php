@@ -18,7 +18,6 @@
                 </div>
             </div>
         </div>
-        <br>
         <!-- end page title -->
 <br>
 

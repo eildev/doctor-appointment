@@ -32,28 +32,22 @@
                     <label for="example-input" class="col-sm-2 col-form-label">Degree</label>
                     <div class="col-sm-10 form-group">
                         <input class="form-control @error('degree') is-invalid  @enderror" type="text" name="degree" placeholder="Degree" id="example-input">
-                        @error('degree')
-                        <span id="name_error" class="text-danger">{{ $message }}</span>
-                         @enderror
+
                     </div>
                 </div>
                 <!-- end row -->
-                <div class="row mb-3">
+                <div class="row mb-3  ">
                     <label for="example-url-input" class="col-sm-2 col-form-label">Start Year </label>
-                    <div class="col-sm-10">
-                        <input class="form-control form-group @error('start_year') is-invalid  @enderror" name="start_year" type="number" placeholder="Enter Start Year" id="example-url-input">
-                        @error('start_year')
-                        <span id="name_error" class="text-danger">{{ $message }}</span>
-                         @enderror
+                    <div class="col-sm-10 form-group">
+                        <input class="form-control @error('start_year') is-invalid  @enderror" name="start_year" type="number" placeholder="Enter Start Year" id="example-url-input">
+
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="example-url-input" class="col-sm-2 col-form-label">End Year </label>
                     <div class="col-sm-10 form-group">
                         <input class="form-control @error('end_year') is-invalid  @enderror" name="end_year" type="number" placeholder="Enter End Year" id="example-url-input">
-                        @error('end_year')
-                        <span id="name_error" class="text-danger">{{ $message }}</span>
-                         @enderror
+
                     </div>
                 </div>
                 <!-- end row -->
@@ -90,7 +84,7 @@
             },
             messages :{
                 institution_name: {
-                    required : 'Please Enter your institution nAme',
+                    required : 'Please Enter your institution Name',
                 },
                 degree: {
                     required : 'Please Enter your Degree',

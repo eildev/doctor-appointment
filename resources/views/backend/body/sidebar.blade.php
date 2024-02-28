@@ -92,11 +92,6 @@
                 <li> <a href="{{ route('gallery.add') }}"><i class="bx bx-right-arrow-alt"></i>Add Gallery </a>
                 </li>
                 <li> <a href="{{ route('gallery.view') }}"><i class="bx bx-right-arrow-alt"></i>Manage Gallery </a>
-                <li> <a href="{{ route('add.education.training') }}"><i class="bx bx-right-arrow-alt"></i>Add Edu &
-                        Training</a>
-                </li>
-                <li> <a href="{{ route('view.education.training') }}"><i class="bx bx-right-arrow-alt"></i>Manage Edu &
-                        Training</a>
                 </li>
             </ul>
         </li>
@@ -121,6 +116,19 @@
             </a>
             <ul>
                 <li> <a href="{{ route('appointment.view') }}"><i class="bx bx-right-arrow-alt"></i>All Appointment</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Review</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('add.review') }}"><i class="bx bx-right-arrow-alt"></i>Add Review</a>
+                </li>
+                <li> <a href="{{ route('view.review') }}"><i class="bx bx-right-arrow-alt"></i>All Review</a>
                 </li>
             </ul>
         </li>
@@ -185,8 +193,8 @@
             <ul>
                 <li> <a href="{{route('add.contact.info')}}"><i class="bx bx-right-arrow-alt"></i>Add Contact Info</a>
                 </li>
-                {{-- <li> <a href="{{route('view.contact.info')}}"><i class="bx bx-right-arrow-alt"></i>Manage Hot link</a>
-                </li> --}}
+                <li> <a href="{{route('view.contact.info')}}"><i class="bx bx-right-arrow-alt"></i>Manage Contact Info</a>
+                </li>
             </ul>
         </li>
         <li class="menu-label">Overview</li>
@@ -199,8 +207,8 @@
             <ul>
                 <li> <a href="{{ route('doctor.view') }}"><i class="bx bx-right-arrow-alt"></i>All Doctor</a>
                 </li>
-                <li> <a href="{{ route('patient.view') }}"><i class="bx bx-right-arrow-alt"></i>Manage Doctor</a>
-                </li>
+                {{-- <li> <a href="{{ route('patient.view') }}"><i class="bx bx-right-arrow-alt"></i>Manage Doctor</a>
+                </li> --}}
             </ul>
         </li>
 

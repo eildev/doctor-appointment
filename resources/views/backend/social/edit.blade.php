@@ -5,18 +5,19 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Update Home Settings</h4>
+                    <h4 class="mb-sm-0">Edit Social Link </h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home Settings</a></li>
-                            <li class="breadcrumb-item active">Update Home Settings</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Edit</a></li>
+                            <li class="breadcrumb-item active">Update Social link</li>
                         </ol>
                     </div>
 
                 </div>
             </div>
         </div>
+        <br>
         <!-- end page title -->
 
 

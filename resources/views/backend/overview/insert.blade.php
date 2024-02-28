@@ -9,10 +9,11 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Overview Settings</a></li>
-                            <li class="breadcrumb-item active">Add Overview</li>
-                        </ol>
-                    </div>
+                         <li class="breadcrumb-item active">
+                             <a href="{{route('manage.overview')}}" class=" btn btn-sm btn-primary text-light fs-4"> +</a>
+                         </li>
+                       </ol>
+                     </div>
 
                 </div>
             </div>

@@ -19,13 +19,44 @@ class ContactInfoController extends Controller
             'phone' => $request->phone,
             'email' => $request->email,
             'address' => $request->address,
+            'opening_hours' => $request->opening_hours,
             'created_at' => Carbon::now(),
         ]);
         $notification = array(
           'message' => 'Contact Info Added Successfully',
             'alert-type' => 'info'
         );
-        return redirect()->back()->with($notification);
-    }
+        return redirect()->route('view.contact.info')->with($notification);
+    }//End Method
+    public function ViewContactInfo(){
+        $contact_info = ContactInfo::all();
+        return view('backend.contact_info.view',compact('contact_info'));
+    }//End Method
+    public function EditContactInfo($id){
+        $contact_info = ContactInfo::findOrFail($id);
+        return view('backend.contact_info.edit',compact('contact_info'));
+    }//End Method
+    public function UpdateContactInfo(Request $request,$id){
+        ContactInfo::findOrFail($id)->update([
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'address' => $request->address,
+            'opening_hours' => $request->opening_hours,
+            'updated_at' => Carbon::now(),
+        ]);
+        $notification = array(
+         'message' => 'Contact Info Updated Successfully',
+            'alert-type' => 'info'
+        );
+        return redirect()->route('view.contact.info')->with($notification);
+    }//End Method
+    public function DeleteContactInfo($id){
+        ContactInfo::findOrFail($id)->delete();
+        $notification = array(
+        'message' => 'Contact Info Deleted Successfully',
+            'alert-type' => 'info'
+        );
+        return redirect()->route('view.contact.info')->with($notification);
+    }//End Method
 
 }

@@ -11,8 +11,8 @@
                             <div class="card-title d-flex justify-content-between align-items-center">
                                 <h5 class="mb-0 text-info">Update Services</h5>
 
-                                <a href="{{ route('service.view') }}" class="btn btn-info btn-sm text-light ">
-                                    <i class="fa-solid fa-eye"></i>
+                                <a href="{{ route('service.view') }}" class="btn btn-info btn-sm fs-2 text-light ">
+                                 +
                                 </a>
                             </div>
 

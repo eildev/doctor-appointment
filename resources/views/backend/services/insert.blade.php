@@ -12,7 +12,7 @@
                                 <h5 class="mb-0 text-info">Add Services</h5>
 
                                 <a href="{{ route('service.view') }}" class="btn btn-info btn-sm text-light ">
-                                    <i class="fa-solid fa-eye"></i>
+                                    +
                                 </a>
                             </div>
 

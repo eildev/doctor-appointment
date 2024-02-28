@@ -34,7 +34,7 @@ class PatientController extends Controller
             'message' => 'Patient Insert Successfully',
             'alert-type' => 'info'
         );
-        return back()->with($notification);
+        return redirect()->route('patient.view')->with($notification);
     }
     public function view()
     {

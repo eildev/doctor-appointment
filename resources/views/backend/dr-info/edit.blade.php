@@ -3,23 +3,23 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="card border-top border-0 border-3 border-info">
-                <form action="{{ Route('update.dr.info', $data->id) }}" method="POST">
+                <form action="{{ Route('update.dr.info', $data->id) }}" id="myForm"method="POST">
                     @csrf
                     <div class="card-body">
                         <div class="border p-4 rounded">
 
                             <div class="card-title d-flex justify-content-between align-items-center">
-                                <h5 class="mb-0 text-info">Add Dr Info</h5>
+                                <h5 class="mb-0 text-info">Edit Dr Info</h5>
 
                                 <a href="{{ route('view.dr.info') }}" class="btn btn-info btn-sm text-light ">
-                                    <i class="fa-solid fa-eye"></i>
+                                    +
                                 </a>
                             </div>
 
                             <hr>
                             <div class="row mb-3">
                                 <label for="inputEnterYourName" class="col-sm-3 col-form-label">Dr Name</label>
-                                <div class="col-sm-9">
+                                <div class="col-sm-9 form-group">
                                     <input type="text" name="dr_name"
                                         class="form-control @error('dr_name') is-invalid  @enderror" id="inputEnterYourName"
                                         value="{{ $data->name }}" placeholder="Enter Doctor Name">
@@ -32,7 +32,7 @@
                             </div>
                             <div class="row mb-3">
                                 <label for="image" class="col-sm-3 col-form-label">Dr Specialization</label>
-                                <div class="col-sm-9">
+                                <div class="col-sm-9 form-group">
                                     <input type="text"
                                         class="form-control  @error('dr_specialization') is-invalid  @enderror"
                                         name="dr_specialization" value="{{ $data->specialization }}"
@@ -44,7 +44,7 @@
                             </div>
                             <div class="row mb-3">
                                 <label for="image" class="col-sm-3 col-form-label">Dr Qualification</label>
-                                <div class="col-sm-9">
+                                <div class="col-sm-9 form-group">
                                     <input type="text"
                                         class="form-control  @error('dr_qualification') is-invalid  @enderror"
                                         name="dr_qualification" value="{{ $data->qualification }}"
@@ -56,7 +56,7 @@
                             </div>
                             <div class="row mb-3">
                                 <label for="image" class="col-sm-3 col-form-label">Dr Experience</label>
-                                <div class="col-sm-9">
+                                <div class="col-sm-9 form-group">
                                     <input type="number"
                                         class="form-control  @error('dr_experience') is-invalid  @enderror"
                                         name="dr_experience" placeholder="Enter Doctor Experience"
@@ -68,7 +68,7 @@
                             </div>
                             <div class="row mb-3">
                                 <label for="" class="col-sm-3 form-label">Dr Bio</label>
-                                <div class="col-sm-9">
+                                <div class="col-sm-9 form-group">
                                     <textarea class="form-control @error('dr_bio') is-invalid  @enderror" name="dr_bio" placeholder="Enter Dr Bio"
                                         style="resize: none; height: 100px;" id="product_descriptions">{{ $data->bio }}</textarea>
                                     @error('dr_bio')
@@ -89,4 +89,58 @@
         </div>
     </div>
     <!--end row-->
+    <script type="text/javascript">
+        jQuery(document).ready(function (){
+            $('#myForm').validate({
+                rules: {
+                    dr_name: {
+                        required : true,
+                    },
+                    dr_specialization: {
+                        required : true,
+                    },
+                    dr_qualification: {
+                        required : true,
+                    },
+                    dr_experience: {
+                        required : true,
+                    },
+                    dr_bio: {
+                        required : true,
+                    },
+
+                },
+                messages :{
+                    dr_name: {
+                        required : 'Please Enter Doctor Name',
+                    },
+                    dr_specialization: {
+                        required : 'Please Enter Doctor Specialization',
+                    },
+                    dr_qualification: {
+                        required : 'Please Enter Doctor Qualification',
+                    },
+                    dr_experience: {
+                        required : 'Please Enter Dr Experience',
+                    },
+                    dr_bio: {
+                        required : 'Please Doctor bio',
+                    },
+
+                },
+                errorElement : 'span',
+                errorPlacement: function (error,element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight : function(element, errorClass, validClass){
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight : function(element, errorClass, validClass){
+                    $(element).removeClass('is-invalid');
+                    $(element).addClass('is-valid');
+                },
+            });
+        });
+    </script>
 @endsection

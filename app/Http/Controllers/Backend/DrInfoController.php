@@ -20,7 +20,7 @@ class DrInfoController extends Controller
         //     'name' => 'required|max:150',
         //     'specialization' => 'required|max:250',
         //     'qualification' => 'required|max:250',
-        //     'experience_years' => 'required|max:11',
+        //     'experience_years' => 'required',
         //     'bio' => 'required|max:2500',
         // ]);
 
@@ -32,7 +32,11 @@ class DrInfoController extends Controller
         $dr_info->experience_years = $request->dr_experience;
         $dr_info->bio = $request->dr_bio;
         $dr_info->save();
-        return back()->with('message', 'Dr Info Successfully Saved');
+        $notification = array(
+            'message' => 'Dr Info Successfully Saved',
+                'alert-type' => 'info'
+            );
+        return redirect()->route('view.dr.info')->with($notification);
     }
     public function view()
     {

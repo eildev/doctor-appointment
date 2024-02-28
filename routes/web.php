@@ -24,6 +24,7 @@ use App\Http\Controllers\Backend\ConsultingCenterController;
 use App\Http\Controllers\Backend\ImageOrVideoController;
 use App\Http\Controllers\Backend\HotLinkController;
 use App\Http\Controllers\Backend\ContactInfoController;
+use App\Http\Controllers\Backend\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,14 +78,15 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/patient/update/{id}', 'update')->name('patient.update');
         Route::get('/patient/delete/{id}', 'delete')->name('patient.delete');
     });
+
     // Dr related routes
     Route::controller(DrManagerController::class)->group(function () {
         // Route::get('/patient/add', 'index')->name('add.patient');
         // Route::post('/patient/store', 'store')->name('patient.store');
         Route::get('/doctor/view', 'view')->name('doctor.view');
-        Route::get('/patient/edit/{id}', 'edit')->name('patient.edit');
-        Route::post('/patient/update/{id}', 'update')->name('patient.update');
-        Route::get('/patient/delete/{id}', 'delete')->name('patient.delete');
+        // Route::get('/patient/edit/{id}', 'edit')->name('patient.edit');
+        // Route::post('/patient/update/{id}', 'update')->name('patient.update');
+        // Route::get('/patient/delete/{id}', 'delete')->name('patient.delete');
     });
 
     // About related routes
@@ -257,10 +259,19 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(ContactInfoController::class)->group(function () {
         Route::get('/add/contact/info', 'AddContactInfo')->name('add.contact.info');
         Route::post('/store/contact/info', 'StoreContactInfo')->name('store.contact.info');
-        // Route::get('/view/contact/info', 'ViewContactInfo')->name('view.contact.info');
-        // Route::get('/edit/contact/info/{id}', 'EditContactInfo')->name('edit.contact.info');
-        // Route::post('/update/contact/info/{id}', 'UpdateContactInfo')->name('update.contact.info');
-        //  Route::get('/delete/contact/info/{id}', 'DeleteContactInfo')->name('delete.contact.info');
+        Route::get('/view/contact/info', 'ViewContactInfo')->name('view.contact.info');
+        Route::get('/edit/contact/info/{id}', 'EditContactInfo')->name('edit.contact.info');
+        Route::post('/update/contact/info/{id}', 'UpdateContactInfo')->name('update.contact.info');
+         Route::get('/delete/contact/info/{id}', 'DeleteContactInfo')->name('delete.contact.info');
+    });
+    //Review All route
+    Route::controller(ReviewController::class)->group(function () {
+        Route::get('/add/review', 'AddReview')->name('add.review');
+        Route::post('/store/review', 'StoreReview')->name('store.review');
+        Route::get('/view/review', 'ViewReview')->name('view.review');
+        Route::get('/edit/review/{id}', 'EditReview')->name('edit.review');
+        Route::post('/update/review/{id}', 'UpdateReview')->name('update.review');
+         Route::get('/delete/review/{id}', 'DeleteReview')->name('delete.review');
     });
 }); //End Middleware
 //

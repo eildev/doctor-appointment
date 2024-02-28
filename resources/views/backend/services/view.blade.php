@@ -9,23 +9,18 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Data Table</li>
+                    <li class="breadcrumb-item active" aria-current="page">All Service</li>
                 </ol>
             </nav>
         </div>
         <div class="ms-auto">
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary">Settings</button>
-                <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-                    data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item"
-                        href="javascript:;">Action</a>
-                    <a class="dropdown-item" href="javascript:;">Another action</a>
-                    <a class="dropdown-item" href="javascript:;">Something else here</a>
-                    <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated link</a>
-                </div>
-            </div>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                 <li class="breadcrumb-item active">
+                     <a href="{{route('service.add')}}" class=" btn btn-sm btn-primary text-light fs-4"> +</a>
+                 </li>
+               </ol>
+             </div>
         </div>
     </div>
     <div class="card">
@@ -51,12 +46,12 @@
                                     <td>{{ Illuminate\Support\Str::limit($item->price, 15) }}</td>
                                     <td>
                                         <a href="{{ route('edit.services', $item->id) }}"
-                                            class="btn btn-outline-secondary btn-sm edit" title="Edit">
-                                            <i class="fas fa-pencil-alt"></i>
+                                            class="btn btn-sm edit bg-warning" title="Edit">
+                                            Edit
                                         </a>
                                         <a id="delete" href="{{ route('delete.services', $item->id) }}"
-                                            class="btn btn-outline-secondary btn-sm edit" title="delete">
-                                            <i class="fas fa-trash-alt"></i>
+                                            class="btn  btn-sm edit bg-danger" title="delete">
+                                          Delete
                                         </a>
                                     </td>
                                 </tr>

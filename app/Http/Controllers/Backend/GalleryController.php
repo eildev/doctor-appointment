@@ -31,7 +31,7 @@ class GalleryController extends Controller
                 'status' => 'error',
             ], 500);
 
-    return redirect()->route('gallery.view');
+
     }
 }//End Method
     public function ViewGallery(){

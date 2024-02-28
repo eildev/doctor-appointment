@@ -9,11 +9,10 @@
                         <div class="border p-4 rounded">
                             <div class="card-title d-flex justify-content-between align-items-center">
                                 <h5 class="mb-0 text-info">Add Patient</h5>
-                                <a href="{{ route('patient.view') }}" class="btn btn-info btn-sm text-light ">
-                                    <i class="fa-solid fa-eye"></i>
+                                <a href="{{ route('patient.view') }}" class="btn btn-info btn-sm fs-4 text-light ">
+                                    +
                                 </a>
                             </div>
-
                             <hr>
                             <div class="row mb-3">
                                 <label for="inputEnterYourName" class="col-sm-3 col-form-label">Patient Name</label>
