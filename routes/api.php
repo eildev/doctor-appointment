@@ -22,7 +22,8 @@ use App\Http\Controllers\ApiController;
 
 Route::controller(ApiController::class)->group(function () {
    // Route::get('/doctor/category/{dr_id}', 'GetCategoryInfo');
-    Route::get('/doctor/dr_info/{dr_id}', 'GetDoctorInfo');
+    // Route::get('/doctor/dr_info/{dr_id}', 'GetDoctorInfo');
+       Route::get('/doctor/home-slider/{dr_id}', 'GetSliderInfo');
 });
 
 Route::prefix('api')->group(function () {

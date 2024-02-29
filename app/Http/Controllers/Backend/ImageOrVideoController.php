@@ -39,7 +39,7 @@ class ImageOrVideoController extends Controller
         if ($request->media_type) {
             $ImageName = rand(). '.'. $request->media_type->extension();
             $request->media_type->move(public_path('uploads/image_or_video/'), $ImageName);
-            $path = public_path('uploads/image_or_video/').$imageOrVideo->media_type;
+            $path = public_path('uploads/image_or_video').$imageOrVideo->media_type;
             if(file_exists($path)){
                 @unlink($path);
             }

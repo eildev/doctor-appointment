@@ -50,6 +50,20 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                            <label for="example-input" class="col-sm-3 col-form-label">Service Image</label>
+                            <div class="col-sm-9 ">
+                                <input name="service_image" class="form-control" type="file"  id="image">
+                            </div>
+                          </div>
+                <!-- end row -->
+                <div class="row mb-3">
+                    <label for="example-url-input" class="col-sm-3 col-form-label"></label>
+                    <div class="col-sm-9">
+                        <img id="showImage" class="rounded avatar-lg" src="{{asset('uploads/no_image/images.png')}}" height="100px" width="100px"  alt="Gallery Image">
+                    </div>
+
+                </div>
                             <div class="row">
                                 <label class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">

@@ -34,6 +34,7 @@
                             <th>Qualification</th>
                             <th>Experience</th>
                             <th>Bio</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -47,6 +48,7 @@
                                     <td>{{ Illuminate\Support\Str::limit($item->qualification, 15) }}</td>
                                     <td>{{ Illuminate\Support\Str::limit($item->experience_years, 15) }}</td>
                                     <td>{{ Illuminate\Support\Str::limit($item->bio, 15) }}</td>
+                                    <td><img style="height: 60px; width:60px" src="{{asset('uploads/dr_image/'.$item->dr_image)}}" alt="Doctor Image"></td>
                                     <td>
                                         <a href="{{ route('edit.dr.info', $item->id) }}"
                                             class="btn btn-sm edit bg-warning" title="Edit">

@@ -25,6 +25,7 @@ use App\Http\Controllers\Backend\ImageOrVideoController;
 use App\Http\Controllers\Backend\HotLinkController;
 use App\Http\Controllers\Backend\ContactInfoController;
 use App\Http\Controllers\Backend\ReviewController;
+use App\Http\Controllers\Backend\SlideController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,24 +80,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/patient/delete/{id}', 'delete')->name('patient.delete');
     });
 
-    // Dr related routes
-    // Route::controller(DrManagerController::class)->group(function () {
-    //     // Route::get('/patient/add', 'index')->name('add.patient');
-    //     // Route::post('/patient/store', 'store')->name('patient.store');
-    //     Route::get('/doctor/view', 'view')->name('doctor.view');
-    //     // Route::get('/patient/edit/{id}', 'edit')->name('patient.edit');
-    //     // Route::post('/patient/update/{id}', 'update')->name('patient.update');
-    //     // Route::get('/patient/delete/{id}', 'delete')->name('patient.delete');
-    // });
-
-    // About related routes
-    Route::controller(AboutController::class)->group(function () {
-        Route::get('/about/add', 'AboutAdd')->name('about.add');
-        Route::post('/about/store', 'StoreAbout')->name('store.about');
-        Route::get('/about/view', 'ViewAbout')->name('about.view');
-        Route::get('/about/edit/{id}', 'EditAbout')->name('edit.about');
-        Route::post('/about/update/{id}', 'UpdateAbout')->name('update.about');
-        Route::get('/about/delete/{id}', 'DeleteAbout')->name('delete.about');
+ //  Slider  routes
+    Route::controller(SlideController::class)->group(function () {
+         Route::get('/slider/add', 'SliderAdd')->name('add.slider');
+         Route::post('/slider/store', 'StoreSlider')->name('store.slider');
+         Route::get('/slider/view', 'ViewSlider')->name('slider.view');
+         Route::get('/slider/edit/{id}', 'EditSlider')->name('edit.slider');
+         Route::post('/slider/update/{id}', 'UpdateSlider')->name('update.slider');
+        Route::get('/slider/delete/{id}', 'DeleteSlider')->name('delete.slider');
     });
 
     // social Icon related routes
@@ -137,81 +128,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/services/delete/{id}', 'delete')->name('delete.services');
         // Route::get('/services/status/{id}', 'status')->name('status.services');
     });
-    //Services Details Related Routes
-    Route::controller(ServicesController::class)->group(function () {
-        Route::get('/services/details/add', 'ServicesDetailsAdd')->name('service.details.add');
-        Route::post('/services/details/store', 'StoreServicesDetails')->name('store.service.details');
-        Route::get('/services/details/view', 'ViewServicesDetails')->name('service.details.view');
-        Route::get('/services/details/edit/{id}', 'EditServicesDetails')->name('edit.services.details');
-        Route::post('/services/details/update/{id}', 'UpdateServicesDetails')->name('update.service.details');
-        Route::get('/services/details/delete/{id}', 'DeleteServicesDetails')->name('delete.services.details');
-    });
-    //Managing Team Related Routes
-    Route::controller(ManagingTeamController::class)->group(function () {
-        Route::get('/managing/team/add', 'ManagingTeamAdd')->name('managing.team.add');
-        Route::post('/managing/team/store', 'StoreManagingTeam')->name('store.managing.team');
-        Route::get('/managing/team/view', 'ManagingTeamView')->name('managing.team.view');
-        Route::get('/managing/team/edit/{id}', 'EditManagingTeam')->name('edit.managing.team');
-        Route::post('/managing/team/update/{id}', 'UpdateManagingTeam')->name('managing.team.update');
-        Route::get('/managing/team/delete/{id}', 'DeleteManagingTeam')->name('delete.managing.team');
-    });
-
-    // Overview related routes
-    Route::controller(OverviewController::class)->group(function () {
-        Route::get('/overview', 'index')->name('overview');
-        Route::post('/overview/store', 'store')->name('overview.store');
-        Route::get('/manage/overview', 'view')->name('manage.overview');
-        Route::get('/edit-overview/{id}', 'edit')->name('edit.overview');
-        Route::post('/update-overview/{id}', 'update')->name('update.overview');
-        Route::get('/delete-overview/{id}', 'delete')->name('delete.overview');
-        Route::post('/overview-status/{id}', 'status')->name('overview.status');
-    });
-
-
-    // News related routes
-    Route::controller(NewsController::class)->group(function () {
-        Route::get('/news', 'index')->name('news');
-        Route::post('/news/store', 'store')->name('news.store');
-        Route::get('/manage/news', 'view')->name('manage.news');
-        Route::get('/edit-news/{id}', 'edit')->name('edit.news');
-        Route::post('/update-news/{id}', 'update')->name('update.news');
-        Route::get('/delete-news/{id}', 'delete')->name('delete.news');
-        Route::post('/news-status/{id}', 'status')->name('news.status');
-    });
-
-    // Testimonial related routes
-    Route::controller(TestimonialController::class)->group(function () {
-        Route::get('/testimonial', 'index')->name('testimonial');
-        Route::post('/testimonial/store', 'store')->name('testimonial.store');
-        Route::get('/manage/testimonial', 'view')->name('manage.testimonial');
-        Route::get('/edit-testimonial/{id}', 'edit')->name('edit.testimonial');
-        Route::post('/update-testimonial/{id}', 'update')->name('update.testimonial');
-        Route::get('/delete-testimonial/{id}', 'delete')->name('delete.testimonial');
-        Route::post('/testimonial-status/{id}', 'status')->name('testimonial.status');
-    });
-
-    // Why Choose us related routes
-    Route::controller(WhyChooseUsController::class)->group(function () {
-        Route::get('/why-choose-us', 'index')->name('why-choose-us');
-        Route::post('/why-choose-us/store', 'store')->name('why-choose-us.store');
-        Route::get('/manage/why-choose-us', 'view')->name('manage.why-choose-us');
-        Route::get('/edit-why-choose-us/{id}', 'edit')->name('edit.why-choose-us');
-        Route::post('/update-why-choose-us/{id}', 'update')->name('update.why-choose-us');
-        Route::get('/delete-why-choose-us/{id}', 'delete')->name('delete.why-choose-us');
-        Route::post('/why-choose-us-status/{id}', 'status')->name('why-choose-us.status');
-    });
-
-    // Our Partner related routes
-    Route::controller(OurPartnerController::class)->group(function () {
-        Route::get('/our-partner', 'index')->name('our-partner');
-        Route::post('/our-partner/store', 'store')->name('our-partner.store');
-        Route::get('/manage/our-partner', 'view')->name('manage.our-partner');
-        Route::get('/edit-our-partner/{id}', 'edit')->name('edit.our-partner');
-        Route::post('/update-our-partner/{id}', 'update')->name('update.our-partner');
-        Route::get('/delete-our-partner/{id}', 'delete')->name('delete.our-partner');
-        Route::post('/our-partner-status/{id}', 'status')->name('our-partner.status');
-    });
-    // News Education Training  routes
+    // Education Training  routes
     Route::controller(EducationTrainingCotroller::class)->group(function () {
         Route::get('/education/training/add', 'AddEducationTraining')->name('add.education.training');
         Route::post('/education/training/store', 'StoreEducationTraining')->name('store.education.training');

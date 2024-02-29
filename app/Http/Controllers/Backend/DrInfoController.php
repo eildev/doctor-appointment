@@ -14,16 +14,9 @@ class DrInfoController extends Controller
     }
     public function store(Request $request)
     {
-        // dd($request->all());
-
-        // $request->validate([
-        //     'name' => 'required|max:150',
-        //     'specialization' => 'required|max:250',
-        //     'qualification' => 'required|max:250',
-        //     'experience_years' => 'required',
-        //     'bio' => 'required|max:2500',
-        // ]);
-
+      if ($request->dr_image) {
+        $ImageName = rand() . '.' . $request->dr_image->extension();
+        $request->dr_image->move(public_path('uploads/dr_image'), $ImageName);
         $dr_info = new DrInfo;
         $dr_info->dr_id = $request->dr_id;
         $dr_info->name = $request->dr_name;
@@ -31,12 +24,38 @@ class DrInfoController extends Controller
         $dr_info->qualification = $request->dr_qualification;
         $dr_info->experience_years = $request->dr_experience;
         $dr_info->bio = $request->dr_bio;
+        $dr_info->dr_facebook = $request->dr_facebook;
+        $dr_info->dr_twitter = $request->dr_twitter;
+        $dr_info->dr_instragram = $request->dr_instragram;
+        $dr_info->other_link = $request->other_link;
+        $dr_info->dr_image = $ImageName;
         $dr_info->save();
         $notification = array(
             'message' => 'Dr Info Successfully Saved',
                 'alert-type' => 'info'
             );
-        return redirect()->route('view.dr.info')->with($notification);
+      return redirect()->route('view.dr.info')->with($notification);
+        }
+   else{
+        $dr_info = new DrInfo;
+        $dr_info->dr_id = $request->dr_id;
+        $dr_info->name = $request->dr_name;
+        $dr_info->specialization = $request->dr_specialization;
+        $dr_info->qualification = $request->dr_qualification;
+        $dr_info->experience_years = $request->dr_experience;
+        $dr_info->bio = $request->dr_bio;
+        $dr_info->dr_facebook = $request->dr_facebook;
+        $dr_info->dr_twitter = $request->dr_twitter;
+        $dr_info->dr_instragram = $request->dr_instragram;
+        $dr_info->other_link = $request->other_link;
+        $dr_info->save();
+        $notification = array(
+            'message' => 'Dr Info Successfully Saved',
+                'alert-type' => 'info'
+            );
+      return redirect()->route('view.dr.info')->with($notification);
+   }
+      
     }
     public function view()
     {
@@ -51,14 +70,49 @@ class DrInfoController extends Controller
     public function update(Request $request, $id)
     {
         $dr_info = DrInfo::findOrFail($id);
-        $dr_info->dr_id = $request->dr_id;
-        $dr_info->name = $request->dr_name;
-        $dr_info->specialization = $request->dr_specialization;
-        $dr_info->qualification = $request->dr_qualification;
-        $dr_info->experience_years = $request->dr_experience;
-        $dr_info->bio = $request->dr_bio;
-        $dr_info->update();
-        return redirect()->route('view.dr.info')->with('message', 'Dr Info Successfully updated');
+        if($request->dr_image){
+            $ImageName = rand() . '.' . $request->dr_image->extension();
+            $request->dr_image->move(public_path('uploads/dr_image'), $ImageName);
+            $path = public_path('uploads/dr_image/').$dr_info->dr_image;
+            if(file_exists($path)){
+                @unlink($path);
+            }
+           $dr_info = DrInfo::findOrFail($id);
+            $dr_info->dr_id = $request->dr_id;
+            $dr_info->name = $request->dr_name;
+            $dr_info->specialization = $request->dr_specialization;
+            $dr_info->qualification = $request->dr_qualification;
+            $dr_info->experience_years = $request->dr_experience;
+            $dr_info->bio = $request->dr_bio;
+            $dr_info->dr_facebook = $request->dr_facebook;
+            $dr_info->dr_twitter = $request->dr_twitter;
+            $dr_info->dr_instragram = $request->dr_instragram;
+            $dr_info->other_link = $request->other_link;
+            $dr_info->dr_image = $ImageName;
+            $dr_info->save();
+            $notification = array(
+                'message' => 'Dr Info Successfully Updated',
+                    'alert-type' => 'info'
+                );
+          return redirect()->route('view.dr.info')->with($notification);
+
+        }
+        else{
+            $dr_info = DrInfo::findOrFail($id);
+            $dr_info->dr_id = $request->dr_id;
+            $dr_info->name = $request->dr_name;
+            $dr_info->specialization = $request->dr_specialization;
+            $dr_info->qualification = $request->dr_qualification;
+            $dr_info->experience_years = $request->dr_experience;
+            $dr_info->bio = $request->dr_bio;
+            $dr_info->dr_facebook = $request->dr_facebook;
+            $dr_info->dr_twitter = $request->dr_twitter;
+            $dr_info->dr_instragram = $request->dr_instragram;
+            $dr_info->other_link = $request->other_link;
+            $dr_info->update();
+            return redirect()->route('view.dr.info')->with('message', 'Dr Info Successfully Without Image updated');
+        }
+        
     }
 
     public function delete($id)

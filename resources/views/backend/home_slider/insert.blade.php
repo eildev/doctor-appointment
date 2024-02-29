@@ -5,45 +5,46 @@
               <div class="card">
                 <div class="card-body">
               <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-               <h4>Add Gallery Page</h4><br>
+               <h4>Add Home Slider</h4><br>
             <div class="page-title-right">
                <ol class="breadcrumb m-0">
                 <li class="breadcrumb-item active">
-                    <a href="{{route('gallery.view')}}" class=" btn btn-sm btn-primary text-light fs-4"> +</a>
+                    <a href="{{route('slider.view')}}" class=" btn btn-sm btn-primary text-light fs-4"> +</a>
                 </li>
               </ol>
             </div>
             </div>
                 <hr>
-                <form action="{{route('store.gallery')}}" method="post" id ="myForm" enctype="multipart/form-data">
+                <form action="{{route('store.slider')}}" method="post" id ="myForm" enctype="multipart/form-data">
                     @csrf
                 <!-- end row -->
                 <div class="row mb-3">
-                    <label for="example-email-input" class="col-sm-2 col-form-label">Category Name</label>
+                    <label for="example-email-input" class="col-sm-2 col-form-label">Short Caption</label>
                     <div class="col-sm-10 form-group">
-                        <select class="form-select " name="category_name"  aria-label="Default select example">
-                            <option selected="" value=""> Select Category Name</option>
-                            @foreach ($category as $cat)
-                            <option value="{{$cat->id}}">{{$cat->category_name}}</option>
-                            @endforeach
-                        </select>
-
+                        <input class="form-control" name="short_caption" type="text" placeholder="Enter Short Caption" id="example-email-input">
                     </div>
 
                 </div>
                 <div class="row mb-3">
-                    <label for="example-email-input" class="col-sm-2 col-form-label">Gallery Caption</label>
+                    <label for="example--input" class="col-sm-2 col-form-label">Long Caption</label>
                     <div class="col-sm-10 form-group">
-                        <input class="form-control" name="gallery_title" type="text" placeholder="Enter Gallery Title" id="example-email-input">
+                        <textarea class="form-control"  type="text"  placeholder="Enter Long Caption" name="long_caption" cols="30" rows="5"></textarea>
+                    </div>
 
+                </div>
+                <div class="row mb-3">
+                    <label for="example--input" class="col-sm-2 col-form-label">Slider link</label>
+                    <div class="col-sm-10 form-group">
+                    <input class="form-control"  type="url"  placeholder="Enter Slider link" name="slider_links" id="example-email-input">
+            
                     </div>
 
                 </div>
                 <!-- end row -->
                 <div class="row mb-3">
-                    <label for="example-input" class="col-sm-2 col-form-label">Gallery Image</label>
+                    <label for="example-input" class="col-sm-2 col-form-label">Slider Image</label>
                     <div class="col-sm-10 form-group">
-                        <input name="gallery_image" class="form-control" type="file"  id="image">
+                        <input name="slider_image" class="form-control" type="file"  id="image">
                     </div>
                 </div>
                 <!-- end row -->
@@ -72,25 +73,31 @@
     $(document).ready(function (){
         $('#myForm').validate({
             rules: {
-                category_name: {
+                short_caption: {
                     required : true,
                 },
-                gallery_image: {
+                long_caption: {
                     required : true,
                 },
-                gallery_title: {
+                slider_links: {
+                    required : true,
+                },
+                slider_image: {
                     required : true,
                 },
             },
             messages :{
-                category_name: {
-                    required : 'Please Select The Category Name',
+                short_caption: {
+                    required : 'Please Enter short Caption',
                 },
-                gallery_image: {
-                    required : 'Please Select The Image ',
+                long_caption: {
+                    required : 'Please Enter long Caption',
                 },
-                gallery_title: {
-                    required : 'Please Enter The Title ',
+                slider_links: {
+                    required : 'Please Enter Slider Links',
+                },
+                slider_image: {
+                    required : 'Please Enter Slider Image',
                 },
             },
             errorElement : 'span',
@@ -105,36 +112,7 @@
                 $(element).removeClass('is-invalid');
                 $(element).addClass('is-valid');
             },
-
-            submitHandler: function(form) {
-            var formData = new FormData(form);
-
-            // Submit form via AJAX
-            $.ajax({
-                type: 'POST',
-                url: $(form).attr('action'),
-                data: formData,
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function(response) {
-                    toastr.success(response.message);
-                    $('#myForm')[0].reset();
-                },
-                error: function(xhr) {
-                    if (xhr.status === 422) {
-                        var errors = xhr.responseJSON.errors;
-                        // Display validation messages for specific fields
-                        $.each(errors, function(field, errorMessage) {
-                            $('#' + field + '_error').text(errorMessage[0]);
-                        });
-                    } else {
-                        toastr.error('Error occurred while submitting the form.');
-                    }
-                }
-            });
-        }
-        });
+        }); 
     });
 
 </script>

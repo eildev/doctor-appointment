@@ -73,16 +73,16 @@
                                     </div>
                                 </a>
                                 <a class="dropdown-item" href="javascript:;">
-<div class="d-flex align-items-center">
-    <div class="notify bg-light-info text-info"><i class="bx bx-home-circle"></i>
-    </div>
-    <div class="flex-grow-1">
-        <h6 class="msg-name">New Product Approved <span
-    class="msg-time float-end">2 hrs ago</span></h6>
-        <p class="msg-info">Your new product has approved</p>
-    </div>
-</div>
-</a>
+                <div class="d-flex align-items-center">
+                    <div class="notify bg-light-info text-info"><i class="bx bx-home-circle"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h6 class="msg-name">New Product Approved <span
+                    class="msg-time float-end">2 hrs ago</span></h6>
+                        <p class="msg-info">Your new product has approved</p>
+                    </div>
+                </div>
+                </a>
                                 <a class="dropdown-item" href="javascript:;">
                                     <div class="d-flex align-items-center">
                                         <div class="notify bg-light-danger text-danger"><i class="bx bx-message-detail"></i>

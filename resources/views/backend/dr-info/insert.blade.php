@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="card border-top border-0 border-3 border-info">
-                <form action="{{ Route('store.dr.info') }}" id="myForm" method="POST">
+                <form action="{{ Route('store.dr.info') }}" id="myForm" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="border p-4 rounded">
@@ -73,6 +73,56 @@
                                     @enderror
                                 </div>
                             </div>
+                            <hr>
+                            <center>
+                                <h4>Doctor Social Media Accout Optional</h4><br>
+                            </center>
+                            <div class="row mb-3">
+                                <label for="" class="col-sm-3 form-label">Facebook Link</label>
+                                <div class="col-sm-9 form-group">
+                                <input type="url"
+                                        class="form-control"
+                                        name="dr_facebook" placeholder="Enter Facebook link">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="" class="col-sm-3 form-label">Twitter Link</label>
+                                <div class="col-sm-9 form-group">
+                                <input type="url"
+                                        class="form-control"
+                                        name="dr_twitter" placeholder="Enter Twitter link">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="" class="col-sm-3 form-label">Instragram Link</label>
+                                <div class="col-sm-9 form-group">
+                                <input type="url"
+                                        class="form-control"
+                                        name="dr_instragram" placeholder="Enter Instragram link">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="" class="col-sm-3 form-label">Other Link</label>
+                                <div class="col-sm-9 form-group">
+                                <input type="url"
+                                        class="form-control"
+                                        name="other_link" placeholder="Enter Any social Media link">
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                            <label for="example-input" class="col-sm-3 col-form-label">Doctor Image</label>
+                            <div class="col-sm-9 form-group">
+                                <input name="dr_image" class="form-control" type="file"  id="image">
+                            </div>
+                        </div>
+                        <!-- end row -->
+                        <div class="row mb-3">
+                            <label for="example-url-input" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <img id="showImage" class="rounded avatar-lg" src="{{asset('uploads/no_image/images.png')}}" height="100px" width="100px"  alt="Gallery Image">
+                            </div>
+
+                        </div>
                             <div class="row">
                                 <label class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
