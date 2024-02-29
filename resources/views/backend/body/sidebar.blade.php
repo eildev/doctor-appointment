@@ -212,7 +212,50 @@
         </li>
         <li class="menu-label">Others</li>
   
-  
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="fab fa-blogger"></i>
+                </div>
+                <div class="menu-title">Manage Blog</div>
+            </a>
+            <ul class="mm-collapse">
+                    {{-- //Blog Category --}}
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon">
+                            <i class="fab fa-slack"></i>
+                        </div>
+                        <div class="menu-title">Blog Category</div>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{{ route('blog.category.view') }}"><i class="bx bx-right-arrow-alt"></i>Add Blog
+                                Category</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('blog.all.category.view') }}"><i class="bx bx-right-arrow-alt"></i>Manage Blog
+                                Category</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <div class="menu-title">Blog Post</div>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{{ route('blog.post.add.view') }}"><i class="bx bx-right-arrow-alt"></i>Add Blog</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('blog.all.post.view') }}"><i class="bx bx-right-arrow-alt"></i>Manage Blog</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
         <li>
             <a href="https://themeforest.net/user/codervent" target="_blank">
                 <div class="parent-icon"><i class="bx bx-support"></i>

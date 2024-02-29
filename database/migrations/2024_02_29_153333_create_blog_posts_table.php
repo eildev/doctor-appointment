@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('social_icons', function (Blueprint $table) {
+        Schema::create('blog_posts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('cat_id');
             $table->foreignId('dr_id');
             $table->foreign('dr_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string("platform_name");
-            $table->string("facebook")->nullable();
-            $table->string("instragram")->nullable();
-            $table->string("linkdin")->nullable();
-            $table->string("twitter")->nullable();
-            $table->string("other_link")->nullable();
+            $table->integer('user_id')->nullable();
+            $table->string('title')->nullable();
+            $table->text('desc')->nullable();
+            $table->string('tags')->nullable();
+            $table->string('image')->nullable();
+            $table->integer('status')->default('0');
+            $table->foreign('cat_id')->references('id')->on('blog_categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('social_icons');
+        Schema::dropIfExists('blog_posts');
     }
 };

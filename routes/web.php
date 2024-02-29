@@ -26,6 +26,8 @@ use App\Http\Controllers\Backend\HotLinkController;
 use App\Http\Controllers\Backend\ContactInfoController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\SlideController;
+use App\Http\Controllers\Backend\BlogCategoryController;
+use App\Http\Controllers\Backend\BlogPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -189,6 +191,26 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/edit/review/{id}', 'EditReview')->name('edit.review');
         Route::post('/update/review/{id}', 'UpdateReview')->name('update.review');
          Route::get('/delete/review/{id}', 'DeleteReview')->name('delete.review');
+    });
+    //All Route for Blog Category
+    Route::controller(BlogCategoryController::class)->group(function () {
+        Route::get('/blog/category/view', 'AddBlogCategory')->name('blog.category.view');
+        Route::post('/blog/store/category', 'StoreBlogCategory')->name('blog.category.store');
+        Route::get('/blog/all/category/view', 'BlogAllCategoryView')->name('blog.all.category.view');
+        Route::get('/blog/category/edit/{id}', 'EditBlogCategory')->name('blog.category.edit');
+        Route::post('/blog/category/update/{id}', 'UpdateBlogCategory')->name('blog.category.update');
+        Route::get('/blog/category/delete/{id}', 'DeleteBlogCategory')->name('blog.category.delete');
+    });
+     //Blog Post All Route Start
+     Route::controller(BlogPostController::class)->group(function () {
+        Route::get('/blog/post/add', 'AddBlogPost')->name('blog.post.add.view');
+        Route::post('/blog/post/store', 'StoreBlogPost')->name('blog.store');
+        Route::get('/blog/post/all/view', 'allBlogPostView')->name('blog.all.post.view');
+        Route::get('/blog/post/edit/{id}', 'BlogPostEdit')->name('blog.post.edit');
+        Route::post('/blog/post/update/{id}', 'BlogPostupdate')->name('blog.post.update');
+        Route::get('/blog/post/delete/{id}', 'BlogPostDelete')->name('blog.post.delete');
+        Route::get('/blog/post/inactive/{id}', 'BlogActiveToInactive')->name('blog.post.inactive');
+        Route::get('/blog/post/active/{id}', 'BlogInctiveToActive')->name('blog.post.active');
     });
 }); //End Middleware
 //

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SocialIcon;
 use Illuminate\Support\Facades\Auth;
-
+use Carbon\Carbon;
 class SocialIconController extends Controller
 {
     public function index(){
@@ -18,7 +18,13 @@ class SocialIconController extends Controller
         $social = new SocialIcon;
         $social->dr_id = Auth::user()->id;
         $social->platform_name = $request->platform_name;
-        $social->url = $request->url;
+        $social->other_link = $request->other_link;
+        $social->facebook = $request->facebook;
+        $social->instragram = $request->instragram;
+        $social->linkdin = $request->linkdin;
+        $social->twitter = $request->twitter;
+        $social->created_at = Carbon::now();
+
         $social->save();
         $notification = [
             'message' => 'social icon Successfully Saved',
@@ -40,7 +46,13 @@ class SocialIconController extends Controller
     {
         $social = SocialIcon::findOrFail($id);
         $social->platform_name = $request->platform_name;
-        $social->url = $request->url;
+        $social->other_link = $request->other_link;
+        $social->facebook = $request->facebook;
+        $social->instragram = $request->instragram;
+        $social->linkdin = $request->linkdin;
+        $social->twitter = $request->twitter;
+        $social->updated_at = Carbon::now();
+
         $social->update();
         $notification = [
             'message' => 'social icon Successfully Updated',

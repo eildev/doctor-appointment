@@ -20,19 +20,26 @@ class ServiceController extends Controller
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
+            'service_image' => 'required',
         ]);
-        Service::insert([
-            'dr_id' => $request->dr_id,
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-            'created_at' => Carbon::now(),
-        ]);
-        $notification = array(
-            'message' => 'Service Insert Successfully',
-            'alert-type' => 'info'
-        );
-        return redirect()->route('service.view')->with($notification);
+        if($request->service_image){
+            $ImageName = rand() . '.' . $request->service_image->extension();
+           $request->service_image->move(public_path('uploads/service_image'), $ImageName);
+            Service::insert([
+                'dr_id' => $request->dr_id,
+                'name' => $request->name,
+                'description' => $request->description,
+                'price' => $request->price,
+                'service_image' =>  $ImageName,
+                'created_at' => Carbon::now(),
+            ]);
+            $notification = array(
+                'message' => 'Service Insert Successfully',
+                'alert-type' => 'info'
+            );
+            return redirect()->route('service.view')->with($notification);
+        }
+     
     } //End Method
     public function view()
     {
@@ -46,18 +53,56 @@ class ServiceController extends Controller
     } //End Method
     public function update(Request $request, $id)
     {
-        Service::findOrFail($id)->update([
-            'dr_id' => $request->dr_id,
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-            'updated_at' => Carbon::now(),
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+           
         ]);
-        $notification = array(
-            'message' => 'Service Updated Successfully',
-            'alert-type' => 'info'
-        );
-        return redirect()->route('service.view')->with($notification);
+        $services=  Service::findOrFail($id);
+        if ($request->service_image) {
+            $ImageName = rand() . '.' . $request->service_image->extension();
+           $request->service_image->move(public_path('uploads/service_image'), $ImageName);
+            $path = public_path('uploads/service_image/').$services->service_image;
+            if(file_exists($path)){
+                @unlink($path);
+            }
+            Service::findOrFail($id)->update([
+                'name' => $request->name,
+                'description' => $request->description,
+                'price' => $request->price,
+                'service_image' =>  $ImageName,
+                'updated_at' => Carbon::now(),
+            ]);
+            $notification = array(
+                'message' => 'Service Updated With Image Successfully',
+                'alert-type' => 'info'
+            );
+            return redirect()->route('service.view')->with($notification);
+        }else{
+            $request->validate([
+                'name' => 'required',
+                'description' => 'required',
+                'price' => 'required',
+               
+            ]);
+            Service::findOrFail($id)->update([
+                'name' => $request->name,
+                'description' => $request->description,
+                'price' => $request->price,
+                'updated_at' => Carbon::now(),
+            ]);
+            $notification = array(
+                'message' => 'Service Updated Successfully',
+                'alert-type' => 'info'
+            );
+            return redirect()->route('service.view')->with($notification);
+        }//End Method
+
+        ////
+
+
+       
     } //End Method
     public function delete($id)
     {

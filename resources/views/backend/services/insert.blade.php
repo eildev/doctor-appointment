@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="card border-top border-0 border-3 border-info">
-                <form action="{{ Route('store.services') }}" method="POST">
+                <form action="{{ Route('store.services') }}" method="POST" enctype="multipart/form-data" >
                     @csrf
                     <div class="card-body">
                         <div class="border p-4 rounded">
@@ -53,14 +53,17 @@
                             <div class="row mb-3">
                             <label for="example-input" class="col-sm-3 col-form-label">Service Image</label>
                             <div class="col-sm-9 ">
-                                <input name="service_image" class="form-control" type="file"  id="image">
+                                <input name="service_image" class="form-control @error('service_image') is-invalid  @enderror" type="file"  id="image">
                             </div>
                           </div>
                 <!-- end row -->
                 <div class="row mb-3">
                     <label for="example-url-input" class="col-sm-3 col-form-label"></label>
                     <div class="col-sm-9">
-                        <img id="showImage" class="rounded avatar-lg" src="{{asset('uploads/no_image/images.png')}}" height="100px" width="100px"  alt="Gallery Image">
+                        <img id="showImage" class="rounded avatar-lg " src="{{asset('uploads/no_image/images.png')}}" height="100px" width="100px"  alt="Gallery Image">
+                        @error('service_image')
+                        <span class="text-danger">{{ $message }}</span>
+                       @enderror
                     </div>
 
                 </div>

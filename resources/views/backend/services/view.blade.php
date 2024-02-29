@@ -33,6 +33,7 @@
                             <th>Services Name</th>
                             <th>Description</th>
                             <th>Price</th>
+                            <th>Service Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -44,6 +45,7 @@
                                     <td>{{ Illuminate\Support\Str::limit($item->name, 15) }}</td>
                                     <td>{{ Illuminate\Support\Str::limit($item->description, 15) }}</td>
                                     <td>{{ Illuminate\Support\Str::limit($item->price, 15) }}</td>
+                                    <td><img style="height: 60px; width:60px" src="{{asset('uploads/service_image/'.$item->service_image)}}" alt=""></td>
                                     <td>
                                         <a href="{{ route('edit.services', $item->id) }}"
                                             class="btn btn-sm edit bg-warning" title="Edit">

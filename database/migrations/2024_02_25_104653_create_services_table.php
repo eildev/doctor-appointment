@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('dr_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('name');
             $table->text('description');
+            $table->string('service_image')->nullable();
             $table->decimal('price', 10, 2);
             $table->timestamps();
         });

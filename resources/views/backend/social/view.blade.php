@@ -31,7 +31,11 @@
                                     <tr>
                                         <th>SN</th>
                                         <th>Platform Name</th>
-                                        <th>url Link</th>
+                                        <th>Facebook</th>
+                                        <th>Instragram</th>
+                                        <th>Linkdin</th>
+                                        <th>Twitter</th>
+                                        <th>Other link</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -41,7 +45,11 @@
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
                                                 <td>{{ Illuminate\Support\Str::limit($data->platform_name, 15) }}</td>
-                                                <td>{{ Illuminate\Support\Str::limit($data->url, 15) }}</td>
+                                                <td>{{ Illuminate\Support\Str::limit($data->facebook, 15) }}</td>
+                                                <td>{{ Illuminate\Support\Str::limit($data->instragram, 15) }}</td>
+                                                <td>{{ Illuminate\Support\Str::limit($data->linkdin, 15) }}</td>
+                                                <td>{{ Illuminate\Support\Str::limit($data->twitter, 15) }}</td>
+                                                <td>{{ Illuminate\Support\Str::limit($data->other_link, 15) }}</td>
 
                                                 <td>
                                                     <a href="{{ route('edit.social.icon', $data->id) }}"
