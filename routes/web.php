@@ -80,14 +80,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
     // Dr related routes
-    Route::controller(DrManagerController::class)->group(function () {
-        // Route::get('/patient/add', 'index')->name('add.patient');
-        // Route::post('/patient/store', 'store')->name('patient.store');
-        Route::get('/doctor/view', 'view')->name('doctor.view');
-        // Route::get('/patient/edit/{id}', 'edit')->name('patient.edit');
-        // Route::post('/patient/update/{id}', 'update')->name('patient.update');
-        // Route::get('/patient/delete/{id}', 'delete')->name('patient.delete');
-    });
+    // Route::controller(DrManagerController::class)->group(function () {
+    //     // Route::get('/patient/add', 'index')->name('add.patient');
+    //     // Route::post('/patient/store', 'store')->name('patient.store');
+    //     Route::get('/doctor/view', 'view')->name('doctor.view');
+    //     // Route::get('/patient/edit/{id}', 'edit')->name('patient.edit');
+    //     // Route::post('/patient/update/{id}', 'update')->name('patient.update');
+    //     // Route::get('/patient/delete/{id}', 'delete')->name('patient.delete');
+    // });
 
     // About related routes
     Route::controller(AboutController::class)->group(function () {

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Gallery;
-
+use Illuminate\Support\Facades\Auth;
 class GalleryController extends Controller
 {
     public function GalleryAdd(){
@@ -18,8 +18,9 @@ class GalleryController extends Controller
             $imageName = rand().'.'.$request->gallery_image->extension();
             $request->gallery_image->move(public_path('uploads/gallery/'), $imageName);
             $gallery = new Gallery;
+            $gallery->dr_id = Auth::user()->id;
             $gallery->category_id = $request->category_name;
-            $gallery->title = $request->gallery_title;
+            $gallery->caption = $request->gallery_title;
             $gallery->gallery_image = $imageName;
             $gallery->save();
             return response()->json([
