@@ -257,6 +257,19 @@
             </ul>
         </li>
         <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Manage FAQs</div>
+            </a>
+            <ul>
+                <li> <a href="{{route('faq.add')}}"><i class="bx bx-right-arrow-alt"></i>Add FAQ</a>
+                </li>
+                <li> <a href="{{route('faq.view')}}"><i class="bx bx-right-arrow-alt"></i>Manage Faq</a>
+                </li>
+            </ul>
+        </li>
+        <li>
             <a href="https://themeforest.net/user/codervent" target="_blank">
                 <div class="parent-icon"><i class="bx bx-support"></i>
                 </div>

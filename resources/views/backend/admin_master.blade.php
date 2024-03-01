@@ -28,6 +28,7 @@
     {{-- multi select tags  --}}
  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/css/multi-select-tag.css">
 	<title>Doctor  Appoinment</title>
 </head>
@@ -69,9 +70,6 @@
 	<script src="{{asset('backend')}}/assets/plugins/jquery-knob/excanvas.js"></script>
 	<script src="{{asset('backend')}}/assets/plugins/jquery-knob/jquery.knob.js"></script>
     <script src="{{ asset('backend') }}/assets/plugins/input-tags/js/tagsinput.js"></script>
-    
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	  <script>
 		  $(function() {
 			  $(".knob").knob();
@@ -83,9 +81,7 @@
 	<script src="{{asset('backend')}}/assets/js/app.js"></script>
 
     <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
-    <script src="{{ asset('backend') }}/assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
-    {{-- multi select tags  --}}
-    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
         @if (Session::has('message'))

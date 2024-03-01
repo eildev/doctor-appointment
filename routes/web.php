@@ -28,6 +28,7 @@ use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\SlideController;
 use App\Http\Controllers\Backend\BlogCategoryController;
 use App\Http\Controllers\Backend\BlogPostController;
+use App\Http\Controllers\Backend\FaqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -201,7 +202,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/blog/category/update/{id}', 'UpdateBlogCategory')->name('blog.category.update');
         Route::get('/blog/category/delete/{id}', 'DeleteBlogCategory')->name('blog.category.delete');
     });
-     //Blog Post All Route Start
+     //Blog Post All Route 
      Route::controller(BlogPostController::class)->group(function () {
         Route::get('/blog/post/add', 'AddBlogPost')->name('blog.post.add.view');
         Route::post('/blog/post/store', 'StoreBlogPost')->name('blog.store');
@@ -211,6 +212,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/blog/post/delete/{id}', 'BlogPostDelete')->name('blog.post.delete');
         Route::get('/blog/post/inactive/{id}', 'BlogActiveToInactive')->name('blog.post.inactive');
         Route::get('/blog/post/active/{id}', 'BlogInctiveToActive')->name('blog.post.active');
+    });
+     //FAQs All Route
+     Route::controller(FaqController::class)->group(function () {
+        Route::get('/blog/add', 'AddFaq')->name('faq.add');
+        Route::post('/faq/store', 'StoreFaq')->name('faq.store');
+        Route::get('/faq/all/view', 'FaqView')->name('faq.view');
+        Route::get('/faq/edit/{id}', 'FaqEdit')->name('faq.edit');
+        Route::post('/faq/update/{id}', 'FaqUpdate')->name('faq.update');
+        Route::get('/faq/delete/{id}', 'FaqDelete')->name('faq.delete');
+        
     });
 }); //End Middleware
 //
