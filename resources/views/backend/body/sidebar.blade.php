@@ -1,7 +1,7 @@
 <div class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="{{ asset('backend') }}/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+            <img src="{{ asset('backend') }}/assets/images/logo-icon.png"  class="logo-icon" alt="logo icon">
         </div>
         <div>
             <h4 class="logo-text fs-5">Dr Appoinment</h4>
@@ -12,18 +12,12 @@
     <!--navigation-->
     <ul class="metismenu" id="menu">
         <li>
-            <a href="javascript:;" class="has-arrow">
+            <a href="{{url('/admin/dashboard')}}" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-home-circle'></i>
                 </div>
                 <div class="menu-title">Dashboard</div>
             </a>
-            <ul>
-                <li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>Default</a>
-                </li>
-                <li> <a href="dashboard-eCommerce.html"><i class="bx bx-right-arrow-alt"></i>eCommerce</a>
-                </li>
-
-            </ul>
+           
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -270,7 +264,7 @@
             </ul>
         </li>
         <li>
-            <a href="https://themeforest.net/user/codervent" target="_blank">
+            <a href="#" target="_blank">
                 <div class="parent-icon"><i class="bx bx-support"></i>
                 </div>
                 <div class="menu-title">Support</div>

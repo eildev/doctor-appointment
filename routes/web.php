@@ -29,7 +29,7 @@ use App\Http\Controllers\Backend\SlideController;
 use App\Http\Controllers\Backend\BlogCategoryController;
 use App\Http\Controllers\Backend\BlogPostController;
 use App\Http\Controllers\Backend\FaqController;
-
+use App\Http\Middleware\RedirectIfAuthenticated;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,8 +61,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
+    //Backend  404 page show
+    Route::fallback(function () {
+        return view('backend.errors.404');
+    });
 
-    //Footer Route
+    //Doctor Info All Route
     Route::controller(DrInfoController::class)->group(function () {
         Route::get('/dr-info/add', 'index')->name('add.dr.info');
         Route::post('/dr-info/store', 'store')->name('store.dr.info');
@@ -235,6 +239,6 @@ Route::middleware('auth')->group(function () {
 
 
 //Admin login forgot Pw Route
-Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
 Route::get('/admin/forgot/password', [AdminController::class, 'AdminForgotPassword'])->name('admin.forgot.password');
 require __DIR__ . '/auth.php';
