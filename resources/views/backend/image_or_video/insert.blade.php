@@ -36,7 +36,7 @@
                 <div class="row mb-3">
                     <label for="institution_namet2" class="col-sm-2 col-form-label"> Description</label>
                     <div class="col-sm-10 form-group">
-                        <textarea class="form-control" name="description" id="" cols="20" rows="5"></textarea>
+                        <textarea class="form-control" name="description" id="summernote" cols="20" rows="5"></textarea>
 
                     </div>
                 </div>

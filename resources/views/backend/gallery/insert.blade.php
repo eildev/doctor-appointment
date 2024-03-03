@@ -34,7 +34,7 @@
                 <div class="row mb-3">
                     <label for="example-email-input" class="col-sm-2 col-form-label">Gallery Caption</label>
                     <div class="col-sm-10 form-group">
-                        <input class="form-control" name="gallery_title" type="text" placeholder="Enter Gallery Title" id="example-email-input">
+                        <input class="form-control" id="summernote" name="gallery_title" type="text" placeholder="Enter Gallery Title" id="example-email-input">
 
                     </div>
 

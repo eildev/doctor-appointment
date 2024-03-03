@@ -28,7 +28,7 @@
                 <div class="row mb-3">
                     <label for="example--input" class="col-sm-2 col-form-label">Long Caption</label>
                     <div class="col-sm-10 form-group">
-                        <textarea class="form-control"  type="text"  placeholder="Enter Long Caption" name="long_caption" cols="30" rows="5"></textarea>
+                        <textarea class="form-control" id="summernote" type="text"  placeholder="Enter Long Caption" name="long_caption" cols="30" rows="5"></textarea>
                     </div>
 
                 </div>

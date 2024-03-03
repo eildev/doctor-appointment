@@ -3,7 +3,7 @@
 
 <div class="page-content">
         <div class="row">
-            <div class="col-md-8 offset-md-2">
+            <div class="col-md-12">
                 <div class="card border-top border-0 border-3 border-info">
                     <form action="{{ Route('blog.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -53,8 +53,8 @@
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-3 col-form-label">Description</label>
                                     <div class="col-sm-9">
-                                        <textarea class="form-control @error('description') is-invalid  @enderror" id="product_descriptions" name="description"
-                                            placeholder=""  style="resize: none; height: 150px;" id="product_descriptions"></textarea>
+                                        <textarea class="form-control @error('description') is-invalid  @enderror" name="description"
+                                            placeholder="" id="summernote" ></textarea>
                                         @error('description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror

@@ -141,7 +141,7 @@
                             <div class="row mb-3">
                                 <label for="example-search-input" class="col-sm-2 col-form-label">Comment</label>
                                 <div class="col-sm-10 form-group">
-                                    <textarea name="comment" class="form-control" id="" cols="30" rows="5"></textarea>
+                                    <textarea name="comment" class="form-control" id="summernote" cols="30" rows="5"></textarea>
                                 </div>
                             </div>
                             <div class="row mb-3">

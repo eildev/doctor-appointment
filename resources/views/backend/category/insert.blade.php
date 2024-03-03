@@ -33,7 +33,7 @@
                 <div class="row mb-3">
                     <label for="example-email-input" class="col-sm-2 col-form-label">Gallery Category Description</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control @error('description') is-invalid  @enderror" name="description" type="text" placeholder="Enter Category Description" id="example-email-input"></textarea>
+                        <textarea class="form-control @error('description') is-invalid  @enderror" id="summernote" name="description" type="text" placeholder="Enter Category Description" id="example-email-input"></textarea>
                         @error('description')
                         <span class="text-danger">{{ $message }}</span>
                          @enderror

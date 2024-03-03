@@ -29,6 +29,10 @@
  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/css/multi-select-tag.css">
 	<title>Doctor  Appoinment</title>
 </head>
@@ -81,7 +85,8 @@
 	<script src="{{asset('backend')}}/assets/js/app.js"></script>
 
     <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
-
+  
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
         @if (Session::has('message'))
@@ -195,6 +200,12 @@
 
             });
         });
+        
+    </script>
+    <script>
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
     </script>
 </body>
 

@@ -29,7 +29,7 @@
                 <div class="row mb-3">
                     <label for="institution_namet2" class="col-sm-2 col-form-label">Address</label>
                     <div class="col-sm-10 form-group">
-                        <input class="form-control"   name="address" type="text" placeholder="Enter Address" id="institution_namet2">
+                        <input class="form-control"   name="address" id="summernote" type="text" placeholder="Enter Address" id="institution_namet2">
 
                     </div>
                 </div>

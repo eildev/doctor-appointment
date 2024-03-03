@@ -1,7 +1,7 @@
 @extends('backend.admin_master')
 @section('admin')
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12 ">
             <div class="card border-top border-0 border-3 border-info">
                 <form action="{{ Route('store.services') }}" method="POST" enctype="multipart/form-data" >
                     @csrf
@@ -34,7 +34,7 @@
                                 <label for="" class="col-sm-3 form-label">Description</label>
                                 <div class="col-sm-9">
                                     <textarea class="form-control @error('description') is-invalid  @enderror" name="description" placeholder="Enter Dr Bio"
-                                        style="resize: none; height: 100px;" id="product_descriptions"></textarea>
+                                        id="summernote"></textarea>
                                     @error('description')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror

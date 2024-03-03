@@ -1,7 +1,7 @@
 @extends('backend.admin_master')
 @section('admin')
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12 ">
             <div class="card border-top border-0 border-3 border-info">
                 <form action="{{ Route('patient.store') }}" method="POST">
                     @csrf
@@ -52,7 +52,7 @@
                                 <label for="image" class="col-sm-3 col-form-label">Address</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control  @error('address') is-invalid  @enderror"
-                                        name="address" placeholder="Enter Patient Address">
+                                        name="address" id="summernote" placeholder="Enter Patient Address">
                                     @error('address')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror

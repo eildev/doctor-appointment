@@ -51,7 +51,7 @@
                             <div class="row mb-3">
                                 <label for="example-search-input" class="col-sm-2 col-form-label">Address</label>
                                 <div class="col-sm-10 form-group">
-                                    <textarea name="address" class="form-control"cols="30" rows="5"></textarea>
+                                    <textarea name="address" id="summernote" class="form-control"cols="30" rows="5"></textarea>
                                 </div>
                             </div>
                             <!-- end row -->
